@@ -20,36 +20,40 @@
     </nav>
 
     <div id="content" ref="inner">
+
+      <!-- Above the fold -->
       <div class="block">
-        <div id="logoContainer">
-          <img src="./assets/LostLake/logo_center.png" alt="" />
-          <div class="test">
-            <div class="top"></div>
-            <div class="bot"></div>
-          </div>
-        </div>
+        <llogo :rot="rot" />
         <div class="brg"></div>
-        <div class="mtn"></div>
+        <div style="height: 110vh; position: absolute; top: 0px; width: 100%;">
+          <div class="mtn" style="position: sticky; bottom: 0px; height: 100vh;"></div>
+        </div>
       </div>
+
+      <div class="block" style="color:#FFF;">
+        <llprofile v-for="(p, k) in profiles" :key="k" :profile="p" />
+      </div>
+
+      <!-- Call to action copy -->
       <div class="block">
-        <p class="cta_copy">Lorem ipsum dolor sit amet, consectetur
-    adipising. We are a <a href="#">team of experiences
-    developers</a> Quisque congue ut leo quis
+        <p class="cta_copy" id="test">Lorem ipsum dolor sit amet, consectetur
+    adipising. We are a <llink>team of experiences
+    developers</llink> Quisque congue ut leo quis
     vulputate. Sed convallis orci id pharetra
-    luctus. <a href="#">proven track record of creating
-    legendary experiences</a> Curabitur
+    luctus. <llink>proven track record of creating
+    legendary experiences</llink> Curabitur
     consectetur tincidunt sapien non egestas.
     In ullamcorper lectus non nisl commodo,
-    in ullamcorper arcu rutrum <a href="#">imagination</a>
+    in ullamcorper arcu rutrum <llink>imagination</llink>
     Etiam mattis ullamcorper dui. Aliquam
-    erat volutpat, <a href="#">join us</a> oCras condimentum
+    erat volutpat, <llink>join us</llink> oCras condimentum
     velit eget dui.</p>
       </div>
+
       <div class="block">
       </div>
-      <div class="block">
-      </div>
-      <div class="block">
+      <div class="block" style="color:#FFF">
+        Join Us.
       </div>
     </div>
 
@@ -58,39 +62,32 @@
 
 <script>
 import gsap from 'gsap';
+import llink from './components/LL_Link.vue';
+import llogo from './components/LL_Logo.vue';
+import llprofile from './components/LL_Profile.vue';
 
 export default {
   name: 'App',
+  components:{
+    llink,
+    llogo,
+    llprofile
+  },
   mounted(){
     this.$refs['inner'].addEventListener('scroll', (e) => {
       e.preventDefault();
+
       let st = e.target.scrollTop;
-      if(st < 3){
+
+      if(st < 4){
+        this.rot = 0;
+
         gsap.to('.brg', .4, {autoAlpha: 1});
-
-        // gsap.to('.top', .3, {height: '20%', width:'70%'})
-        // gsap.to('.bot', .3, {height: '20%', width:'70%'})
-        gsap.to('.test', .4, {transform: "rotate(0deg)"});
-
-        /*
-        gsap.to('.test', .4, {autoAlpha: 1});
-        gsap.to('.brg', 1, {autoAlpha: 1});
-        */
         gsap.to('nav', .6, {backgroundColor: "rgba(0,0,0,0)"});
-
       }else{
-        // gsap.to('.top', .3, {height: 100, width:100})
-        // gsap.to('.bot', .3, {height: 100, width:100})
+        this.rot = 45;
         gsap.to('.brg', .4, {autoAlpha: 0});
-        if(st > window.innerHeight * 1.3){
-          gsap.to('#logoContainer', .3, {autoAlpha: 0});
-        } else if(st < window.innerHeight * 1.3){
-          gsap.to('#logoContainer', .3, {autoAlpha: 1});
-
-        }
-        gsap.to('.test', .4, {transform: "rotate(45deg)"});
         gsap.to('nav', .5, {backgroundColor: "rgba(0,0,0,.5)"});
-        // gsap.to('.brg', .4, {autoAlpha: 0});
 
         return false;
       }
@@ -98,7 +95,24 @@ export default {
   },
   data: function(){
     return {
-
+      rot: 0,
+      profiles: [
+        {
+          name: 'James Phinney',
+          title: 'Game Design',
+          description: "Cliff figured out that creating something is basically magic, and has been excavating the mysterious spaces of imagination since. Doing this in any form is thrilling, but doing it together is among the best things humans do. Cliff launched a lifelong adventure in what he considers to be the pinnacle of creative effort and expression - the gaming industry. To craft whole other worlds, settings, and experiences is really, truly, something tremendous. Most recently Cliff worked to bring the new God of War to life, and now, having found Bonfire - a place that seems custom made around his interests - he is more excited than ever before."
+        },
+        {
+          name: 'Joe Pikop',
+          title: 'Creative Direction',
+          description: "When Anna's parents told her no one would ever pay her to play video games, she embarked on a lifelong quest to prove them wrong. She studied Game Design and Development at Rochester Institute of Technology, and started her career as a programmer for Microsoft Games Studio. She moved to Valve to grow the Steam platform, and she helped launch the HTC Vive. When she moved to the bay area to run Content Strategy at Oculus, she knew it was time to live her Stardew Valley dream of opening a nonprofit farm for rescue animals. You can learn more about Sweet Farm and her journey to Bonfire in her origin story"
+        },
+        {
+          name: 'Mark Podorf',
+          title: 'Technology',
+          description: "Dave got his start by doing QA, set building, and movie editing for the claymation games The Neverhood and Skullmonkeys. He built levels for Metal Arms: Glitch in the System before he started at Blizzard on WoW - working on zones like Howling Fjord and Grizzly Hills. He moved to Diablo III, where he designed exterior zones, dungeons, boss fights, and events. On Overwatch, he created Hollywood, based on inspiration from a visit to the Warner Bros. backlot, Watchpoint: Gibraltar, Horizon Lunar Colony, and Illios among others. At Bonfire, Dave is excited to create levels for our new IP, and to make us listen to his playlist - Davesneylandworld."
+        }
+      ]
     }
   }
 }
@@ -153,7 +167,7 @@ html, body{
   }
   #content{
     overflow-y: scroll;
-    margin-right: -15px;
+    margin-right: -17px;
     }
   .block{
     position: relative;
@@ -165,6 +179,7 @@ html, body{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border-bottom: 1px solid #FFF;
     }
   .mtn{
     width: 100%;
@@ -187,52 +202,10 @@ html, body{
 
     /*organize*/
 
-    #logoContainer{
-      z-index: 9998;
-      align-self: center;
-      position: fixed;
-      width: 350px;
-      height: 390px;
-      }
-        .test{
-    display: flex;
-    height: 100%;
-    flex-direction: column;
-    position: relative;
-    }
-    img{
-      z-index: 9999;
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      margin: 100px 0px 0px 50px;
-    }
-    .test div{
-      width: 70%;
-      height: 20%;
-      color:#FFF;
-      border-width: 8px !important;
-      box-sizing: border-box;
-      cursor: pointer;
-      }
-      .test div:first-child{
-        border-left: solid;
-        border-top: solid;
-        }
-      .test div:last-child{
-        border-right: solid;
-        border-bottom: solid;
-        margin-top: auto;
-        margin-left: auto;
-        }
 .cta_copy{
   color:#FFF;
-  letter-spacing: 3px;
-  font-size: 4vw;
+  font-size: 2vw;
   color: #456195;
   padding: 30px;
   }
-.cta_copy a{
-  color:#FFF;
-}
 </style>
