@@ -110,12 +110,7 @@ html, body{
   /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
   }
 
-   .mtn{
-    background: url('./assets/LostLake/mtns.png') no-repeat center center;
-    }
-  .brg{
-    background: url('./assets/LostLake/bridge.jpg') no-repeat center center;
-    }
+
 
   #content{
     background-color:#000;
