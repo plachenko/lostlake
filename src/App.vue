@@ -224,7 +224,7 @@ html, body{
     position: absolute;
     top:0px;
     background-size: cover !important;
-    background: url('./assets/LostLake/bridge.jpg') no-repeat center -510px;
+    background: url('./assets/LostLake/bridge.jpg') no-repeat center center;
     }
 
   .cta_copy{
