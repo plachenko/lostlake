@@ -1,33 +1,37 @@
 <template>
-  <div class="profile">
+  <div class="game">
+    <h3>{{ game.name }}</h3>
     <div class="img" />
-    <h3>{{ profile.name }} <div>{{ profile.title }}</div></h3>
-    <p>{{ profile.description }}</p>
+    <p>{{ game.description }}</p>
   </div>
 </template>
 
 <script>
-import gsap from 'gsap';
+// import gsap from 'gsap';
 
 export default {
-  name: 'lprofile',
+  name: 'llgame',
   props: {
-    profile: {
+    game: {
       type: Object,
-    },
+    }
   },
   methods: {
 
   },
   mounted(){
-    gsap.from(this.$el, 1, {opacity: 0, delay: this.$vnode.key - this.$vnode.key/1.4})
+    // gsap.from(this.$el, 1, {opacity: 0, delay: this.$vnode.key - this.$vnode.key/1.4})
   }
 }
 </script>
 
 <style scoped>
+.game{
+  box-sizing: content-box;
+}
 .img{
   height: 500px;
+  position: absolute;
   width: 100%;
   background-color:#F00;
 }
@@ -36,12 +40,11 @@ h3{
   font-size: 40px;
   margin-top: -70px;
 }
-h3 div {
-  width: 220px;
-  font-size: 20px;
-}
+
 p{
   padding-right: 40px;
   margin-top: 40px;
-}
+  width: 400px;
+  background-color:#000;
+  }
 </style>

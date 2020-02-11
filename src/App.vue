@@ -30,29 +30,26 @@
         </div>
       </div>
 
-      <div class="block" style="color:#FFF;">
-        <llprofile v-for="(p, k) in profiles" :key="k" :profile="p" />
-      </div>
-
       <!-- Call to action copy -->
-      <div class="block">
-        <p class="cta_copy" id="test">Lorem ipsum dolor sit amet, consectetur
-    adipising. We are a <llink>team of experiences
-    developers</llink> Quisque congue ut leo quis
-    vulputate. Sed convallis orci id pharetra
-    luctus. <llink>proven track record of creating
-    legendary experiences</llink> Curabitur
-    consectetur tincidunt sapien non egestas.
-    In ullamcorper lectus non nisl commodo,
-    in ullamcorper arcu rutrum <llink>imagination</llink>
-    Etiam mattis ullamcorper dui. Aliquam
-    erat volutpat, <llink>join us</llink> oCras condimentum
-    velit eget dui.</p>
+      <div class="block" style="color:#FFF; display: flex; flex-direction: row; box-sizing: border-box; padding: 400px 200px 0px 200px;">
+        <p class="cta_copy" id="test">Lorem ipsum dolor sit amet, consectetur adipising. We are a <llink>team of experiences developers</llink> Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. <llink>proven track record of creating legendary experiences</llink> Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum <llink>imagination</llink> Etiam mattis ullamcorper dui. Aliquam erat volutpat, <llink>join us</llink> oCras condimentum velit eget dui.</p>
       </div>
 
-      <div class="block">
+      <!-- Team section -->
+      <div class="block content" style="color:#FFF; display: flex; box-sizing: border-box; padding: 0px 200px 0px 200px;">
+        <h2 style="font-size: 54px;">Team of experienced developers.</h2>
+        <div style="flex-direction: row; display: flex;">
+          <llprofile v-for="(p, k) in profiles" :key="k" :profile="p" />
+        </div>
       </div>
-      <div class="block" style="color:#FFF">
+
+      <!-- Experience section -->
+      <div class="block" style="color:#FFF; display: flex; box-sizing: border-box; padding: 0px 200px 0px 200px;">
+        <h2 style="font-size: 54px;">Proven track record of creating legendary experiences.</h2>
+        <llgame :game="game" />
+      </div>
+
+      <div class="block" style="color:#FFF; display: flex; box-sizing: border-box; padding: 0px 200px 0px 200px;">
         Join Us.
       </div>
     </div>
@@ -65,13 +62,15 @@ import gsap from 'gsap';
 import llink from './components/LL_Link.vue';
 import llogo from './components/LL_Logo.vue';
 import llprofile from './components/LL_Profile.vue';
+import llgame from './components/LL_Game.vue';
 
 export default {
   name: 'App',
   components:{
     llink,
     llogo,
-    llprofile
+    llprofile,
+    llgame
   },
   mounted(){
     this.$refs['inner'].addEventListener('scroll', (e) => {
@@ -81,7 +80,6 @@ export default {
 
       if(st < 4){
         this.rot = 0;
-
         gsap.to('.brg', .4, {autoAlpha: 1});
         gsap.to('nav', .6, {backgroundColor: "rgba(0,0,0,0)"});
       }else{
@@ -96,6 +94,10 @@ export default {
   data: function(){
     return {
       rot: 0,
+      game: {
+        name: 'Starcraft',
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum. Etiam mattis ullamcorper dui. Aliquam erat volutpat. Cras condimentum velit eget dui pellentesque, eu efficitur est pretium. Vivamus rutrum eros nec neque tincidunt, in volutpat mi fringilla. Donec vestibulum sodales justo, eu tempor libero gravida blandit. Maecenas sodales est quis nulla gravida convallis. Duis eu sem quis augue pharetra sodales."
+      },
       profiles: [
         {
           name: 'James Phinney',
@@ -174,12 +176,10 @@ html, body{
     min-height: 100vh;
     width: 100%;
     background-color:#000;
-    border-top: 1px solid;
     background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-bottom: 1px solid #FFF;
     }
   .mtn{
     width: 100%;

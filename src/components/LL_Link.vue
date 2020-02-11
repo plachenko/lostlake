@@ -41,8 +41,8 @@ a {
   white-space: wrap;
   position: relative;
   color:#FFF;
-  text-decoration: underline;
   margin: 0 10px;
+  text-decoration: none;
   }
   a div{
     width: 40px;
