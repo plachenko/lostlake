@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'InputSerifCondensed';
+    src: url('InputSerifCondensed-Regular.eot');
+    src: url('InputSerifCondensed-Regular.eot?#iefix') format('embedded-opentype'),
+        url('InputSerifCondensed-Regular.woff2') format('woff2'),
+        url('InputSerifCondensed-Regular.woff') format('woff'),
+        url('InputSerifCondensed-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'InputSerif';
+    src: url('InputSerif-Bold.eot');
+    src: url('InputSerif-Bold.eot?#iefix') format('embedded-opentype'),
+        url('InputSerif-Bold.woff2') format('woff2'),
+        url('InputSerif-Bold.woff') format('woff'),
+        url('InputSerif-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'InputSerif';
+    src: url('InputSerif-Black.eot');
+    src: url('InputSerif-Black.eot?#iefix') format('embedded-opentype'),
+        url('InputSerif-Black.woff2') format('woff2'),
+        url('InputSerif-Black.woff') format('woff'),
+        url('InputSerif-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+

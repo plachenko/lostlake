@@ -1,6 +1,7 @@
 <template>
   <div class="profile">
     <div class="img" />
+    <!-- <div :style="{ backgroundImage: `url('${profile.img}')`}" class="img" /> -->
     <h3>{{ profile.name }} <div>{{ profile.title }}</div></h3>
     <p>{{ profile.description }}</p>
   </div>
@@ -27,21 +28,27 @@ export default {
 
 <style scoped>
 .img{
-  height: 500px;
+  height: 580px;
   width: 100%;
-  background-color:#F00;
+  background-image: url('../assets/LostLake/profile/mark.jpeg');
+  background-size: cover;
 }
 h3{
   width: 30px;
   font-size: 40px;
   margin-top: -70px;
+  font-family: 'inputSerif';
 }
 h3 div {
-  width: 220px;
+  padding-top: 10px;
+  width: 270px;
   font-size: 20px;
 }
 p{
-  padding-right: 40px;
+  padding-right: 105px;
+  font-size: .8em;
+  line-height: 1.7;
   margin-top: 40px;
+  font-family: 'inputSerifCondensed';
 }
 </style>
