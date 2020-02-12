@@ -14,9 +14,9 @@
 
       <!-- Above the fold -->
       <div ref="atf" class="block">
-        <llogo :rot="rot" />
         <div class="brg"></div>
-        <div style="height: 110vh; position: absolute; top: 0px; width: 100%;">
+        <div style="height: 150vh; position: absolute; top: 0px; width: 100%; display: flex; flex-direction: column; align-items: center;">
+          <llogo :rot="rot" />
           <div class="mtn" style="position: sticky; bottom: 0px; height: 100vh;"></div>
         </div>
       </div>
@@ -113,9 +113,13 @@ export default {
 
       if(st < 4){
         this.rot = 0;
-        gsap.to('.brg', .4, {autoAlpha: 1});
       }else{
         this.rot = 45;
+      }
+
+      if(st < 310){
+        gsap.to('.brg', .4, {autoAlpha: 1});
+      }else{
         gsap.to('.brg', .4, {autoAlpha: 0});
 
         return false;
@@ -247,7 +251,7 @@ html, body{
     }
 
   .cta_copy{
-    margin: 250px 0 100px 0;
+    margin: 650px 0 100px 0;
     color:#FFF;
     font-family: 'inputSerif';
     font-size: 2.4em;

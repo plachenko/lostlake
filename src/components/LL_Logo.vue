@@ -50,6 +50,7 @@ position: sticky;
 width: 350px;
 height: 350px;
 top: 350px;
+margin-bottom: 100px;
 }
   .test {
   display: flex;
