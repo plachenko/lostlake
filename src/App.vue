@@ -1,15 +1,6 @@
 <template>
   <div id="app">
 
-    <!--
-    <div style="overflow-y: scroll; height: 400px; width: 500px;">
-      <div style="height: 1600px; width: 100%;">
-        <div style='height: 10px'></div>
-        <div style="background-color:#F00; height: 100px; width:100%; top: 0px; position: sticky;"></div>
-      </div>
-    </div>
-    -->
-
     <nav ref="nav">
       <ul>
         <li><a href="#team">Team.</a></li>
@@ -22,7 +13,7 @@
     <div id="content" ref="inner">
 
       <!-- Above the fold -->
-      <div class="block">
+      <div ref="atf" class="block">
         <llogo :rot="rot" />
         <div class="brg"></div>
         <div style="height: 110vh; position: absolute; top: 0px; width: 100%;">
@@ -45,34 +36,41 @@
         </div>
       </div>
 
-      <div class="block content" style="color:#FFF; display: flex; box-sizing: border-box; align-items: center;">
-        <div style="width: 1200px">
+      <!-- Experience -->
+      <div id="experience" class="block content" style="color:#FFF; display: flex; box-sizing: border-box; align-items: center;">
+        <div style="width: 1200px; margin-bottom: 40px;">
           <h2 style="width: 900px; margin-top: 100px; font-size: 54px; line-height: 1.4; flex: 1; font-family: 'inputSerif'; margin-bottom: 100px;">Proven track record of creating legendary experiences.</h2>
         </div>
-        <div style="position: relative; height: 100vh; width: 100%;">
-          <div style="width: 400px; background-color:#000; padding: 30px; z-index: 9998; position: relative;">
-            <h3>Starcraft</h3>
-            <p>Cillum nisi commodo mollit labore velit cupidatat velit non labore do. Id minim dolore incididunt ut aute quis dolor aute ad officia. Occaecat irure enim sit sint minim cillum id. Adipisicing ea nostrud ex dolor aliqua excepteur consequat eu labore ullamco magna quis. Voluptate incididunt quis non eu ullamco consequat esse sit do pariatur. Anim consequat sunt consequat tempor esse mollit voluptate voluptate Lorem dolor labore.</p>
+        <div style="position: relative; height: 100vh; width: 100%; display: flex; flex-direction: column; margin-bottom: 100px">
+          <div style="width: 1200px; height: 100%; z-index: 9998; position: relative; align-self: center;">
+            <div style="background-color:#000; padding: 30px; height: 90%; float: left; ">
+              <h3 style="font-family: 'inputSerif'; font-size: 2.4em; margin-bottom: 30px; margin-top: 100px">Starcraft</h3>
+              <p style="color: rgb(151, 191, 222); width: 300px; line-height: 1.7; font-family: 'inputSerifCondensed'; font-size: .8em;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum. Etiam mattis ullamcorper dui. Aliquam erat volutpat. Cras condimentum velit eget dui pellentesque, eu efficitur est pretium. Vivamus rutrum eros nec neque tincidunt, in volutpat mi fringilla. Donec vestibulum sodales justo, eu tempor libero gravida blandit. Maecenas sodales est quis nulla gravida convallis. Duis eu sem quis augue pharetra sodales.</p>
+            </div>
           </div>
           <div class="gImg"></div>
         </div>
+        <div style="position: relative; height: 100vh; width: 100%; display: flex; flex-direction: column; margin-bottom: 100px">
+          <div style="width: 1200px; height: 100%; z-index: 9998; position: relative; align-self: center;">
+            <div style="background-color:#000; padding: 30px; height: 90%; float: right; ">
+              <h3 style="font-family: 'inputSerif'; font-size: 2.4em; margin-bottom: 30px; margin-top: 100px">Guild Wars</h3>
+              <p style="color: rgb(151, 191, 222); width: 300px; line-height: 1.7; font-family: 'inputSerifCondensed'; font-size: .8em;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum. Etiam mattis ullamcorper dui. Aliquam erat volutpat. Cras condimentum velit eget dui pellentesque, eu efficitur est pretium. Vivamus rutrum eros nec neque tincidunt, in volutpat mi fringilla. Donec vestibulum sodales justo, eu tempor libero gravida blandit. Maecenas sodales est quis nulla gravida convallis. Duis eu sem quis augue pharetra sodales.</p>
+            </div>
+          </div>
+          <div class="gImg2"></div>
+        </div>
+        <div style="position: relative; height: 100vh; width: 100%; display: flex; flex-direction: column;">
+          <div style="width: 1200px; height: 100%; z-index: 9998; position: relative; align-self: center;">
+            <div style="background-color:#000; padding: 30px; height: 90%; float: left; ">
+              <h3 style="font-family: 'inputSerif'; font-size: 2.4em; margin-bottom: 30px; margin-top: 100px">Gigantic</h3>
+              <p style="color: rgb(151, 191, 222); width: 300px; line-height: 1.7; font-family: 'inputSerifCondensed'; font-size: .8em;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum. Etiam mattis ullamcorper dui. Aliquam erat volutpat. Cras condimentum velit eget dui pellentesque, eu efficitur est pretium. Vivamus rutrum eros nec neque tincidunt, in volutpat mi fringilla. Donec vestibulum sodales justo, eu tempor libero gravida blandit. Maecenas sodales est quis nulla gravida convallis. Duis eu sem quis augue pharetra sodales.</p>
+            </div>
+          </div>
+          <div class="gImg3"></div>
+        </div>
       </div>
 
-      <!-- Experience section -->
-      <!--
-      <div id="experience" class="block content" style="color:#FFF; display: flex; box-sizing: border-box; align-items: center;">
-        <div style="width: 1200px">
-          <h2 style="width: 900px; margin-top: 100px; font-size: 54px; line-height: 1.4; flex: 1; font-family: 'inputSerif'; margin-bottom: 100px;">Proven track record of creating legendary experiences.</h2>
-        </div>
-        <div style="flex-direction: row; display: flex; width: 1200px;">
-          <llgame v-for="(g, k) in experiences" :key="k" :game="g" />
-        </div>
-      </div>
-      <div class="block" style="color:#FFF; display: flex; box-sizing: border-box; padding: 0px 200px 0px 200px;">
-        <h2 style="font-size: 54px;">Proven track record of creating legendary experiences.</h2>
-      </div>
-      -->
-
+      <!-- Contact -->
       <div id="contact" class="block" style="font-family: 'inputSerif'; font-size: 3em; color:#FFF; display: flex; align-items: center; box-sizing: border-box;">
         <div style="width: 1200px;">
           Join us
@@ -99,20 +97,26 @@ export default {
     // llgame
   },
   mounted(){
+    let rect = this.$refs['atf'].getBoundingClientRect();
+
     gsap.from(this.$refs['nav'], .9, {autoAlpha: 0, delay: .3});
     this.$refs['inner'].addEventListener('scroll', (e) => {
       e.preventDefault();
 
       let st = e.target.scrollTop;
 
+      if(st < rect.height){
+        gsap.to('nav', .6, {backgroundColor: "rgba(0,0,0,0)"});
+      }else{
+        gsap.to('nav', .5, {backgroundColor: "rgba(0,0,0,.5)"});
+      }
+
       if(st < 4){
         this.rot = 0;
         gsap.to('.brg', .4, {autoAlpha: 1});
-        gsap.to('nav', .6, {backgroundColor: "rgba(0,0,0,0)"});
       }else{
         this.rot = 45;
         gsap.to('.brg', .4, {autoAlpha: 0});
-        gsap.to('nav', .5, {backgroundColor: "rgba(0,0,0,.5)"});
 
         return false;
       }
@@ -230,7 +234,7 @@ html, body{
     position: absolute;
     z-index: 9996;
     background-size: cover !important;
-    background: url('./assets/LostLake/mtns.png') no-repeat center center;
+    background: url('./assets/LostLake/bangla.png') no-repeat center center;
     }
   .brg{
     width: 100%;
@@ -257,6 +261,26 @@ html, body{
       z-index: 9996;
       width: 100%;
       background-image: url('./assets/LostLake/games/starcraft.jpg');
+      background-repeat:no-repeat;
+      background-size: cover;
+      height: 100%;
+      position: absolute;
+      top:0px;
+      }
+    .gImg2{
+      z-index: 9996;
+      width: 100%;
+      background-image: url('./assets/LostLake/games/guildwars.jpg');
+      background-repeat:no-repeat;
+      background-size: cover;
+      height: 100%;
+      position: absolute;
+      top:0px;
+      }
+    .gImg3{
+      z-index: 9996;
+      width: 100%;
+      background-image: url('./assets/LostLake/games/gigantic.jpg');
       background-repeat:no-repeat;
       background-size: cover;
       height: 100%;

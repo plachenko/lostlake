@@ -34,7 +34,6 @@ export default {
 .img{
   height: 580px;
   width: 100%;
-  /* background-image: url('../assets/LostLake/profile/mark.jpeg'); */
   background-size: cover;
 }
 h3{
