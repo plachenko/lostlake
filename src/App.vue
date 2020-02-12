@@ -10,7 +10,7 @@
     </div>
     -->
 
-    <nav>
+    <nav ref="nav">
       <ul>
         <li><a href="#team">Team.</a></li>
         <li><a href="#experience">Experience.</a></li>
@@ -46,23 +46,24 @@
       </div>
 
       <!-- Experience section -->
+      <!--
       <div id="experience" class="block content" style="color:#FFF; display: flex; box-sizing: border-box; align-items: center;">
         <div style="width: 1200px">
           <h2 style="width: 900px; margin-top: 100px; font-size: 54px; line-height: 1.4; flex: 1; font-family: 'inputSerif'; margin-bottom: 100px;">Proven track record of creating legendary experiences.</h2>
         </div>
         <div style="flex-direction: row; display: flex; width: 1200px;">
-          <llprofile v-for="(p, k) in experiences" :key="k" :profile="p" />
+          <llgame v-for="(g, k) in experiences" :key="k" :game="g" />
         </div>
       </div>
-      <!--
       <div class="block" style="color:#FFF; display: flex; box-sizing: border-box; padding: 0px 200px 0px 200px;">
         <h2 style="font-size: 54px;">Proven track record of creating legendary experiences.</h2>
-        <llgame :game="game" />
       </div>
       -->
 
-      <div id="contact" class="block" style="font-family: 'inputSerif'; font-size: 3em; color:#FFF; display: flex; box-sizing: border-box; padding: 0px 200px 0px 200px;">
-        Join us
+      <div id="contact" class="block" style="font-family: 'inputSerif'; font-size: 3em; color:#FFF; display: flex; align-items: center; box-sizing: border-box;">
+        <div style="width: 1200px;">
+          Join us
+        </div>
       </div>
     </div>
 
@@ -81,10 +82,11 @@ export default {
   components:{
     llink,
     llogo,
-    llprofile,
+    llprofile
     // llgame
   },
   mounted(){
+    gsap.from(this.$refs['nav'], .9, {autoAlpha: 0, delay: .3});
     this.$refs['inner'].addEventListener('scroll', (e) => {
       e.preventDefault();
 
@@ -124,19 +126,19 @@ export default {
         {
           name: 'James Phinney',
           title: 'Game Design',
-          img: './assets/LostLake/profile/james.jpg',
+          img: 'james.jpg',
           description: "Cliff figured out that creating something is basically magic, and has been excavating the mysterious spaces of imagination since. Doing this in any form is thrilling, but doing it together is among the best things humans do. Cliff launched a lifelong adventure in what he considers to be the pinnacle of creative effort and expression - the gaming industry. To craft whole other worlds, settings, and experiences is really, truly, something tremendous. Most recently Cliff worked to bring the new God of War to life, and now, having found Bonfire - a place that seems custom made around his interests - he is more excited than ever before."
         },
         {
           name: 'Joe Pikop',
           title: 'Creative Direction',
-          img: './assets/LostLake/profile/joe.jpg',
+          img: 'joe.jpg',
           description: "When Anna's parents told her no one would ever pay her to play video games, she embarked on a lifelong quest to prove them wrong. She studied Game Design and Development at Rochester Institute of Technology, and started her career as a programmer for Microsoft Games Studio. She moved to Valve to grow the Steam platform, and she helped launch the HTC Vive. When she moved to the bay area to run Content Strategy at Oculus, she knew it was time to live her Stardew Valley dream of opening a nonprofit farm for rescue animals. You can learn more about Sweet Farm and her journey to Bonfire in her origin story"
         },
         {
           name: 'Mark Podorf',
           title: 'Technology',
-          img: '../assets/logo.png',
+          img: 'mark.jpeg',
           description: "Dave got his start by doing QA, set building, and movie editing for the claymation games The Neverhood and Skullmonkeys. He built levels for Metal Arms: Glitch in the System before he started at Blizzard on WoW - working on zones like Howling Fjord and Grizzly Hills. He moved to Diablo III, where he designed exterior zones, dungeons, boss fights, and events. On Overwatch, he created Hollywood, based on inspiration from a visit to the Warner Bros. backlot, Watchpoint: Gibraltar, Horizon Lunar Colony, and Illios among others. At Bonfire, Dave is excited to create levels for our new IP, and to make us listen to his playlist - Davesneylandworld."
         }
       ]

@@ -1,7 +1,8 @@
 <template>
   <div class="profile">
-    <div class="img" />
-    <!-- <div :style="{ backgroundImage: `url('${profile.img}')`}" class="img" /> -->
+    <!-- <div class="img" /> -->
+    <!-- <img :src="'/img/'+profile.img" /> -->
+    <div :style="{ backgroundImage: `url('${i}')`}" class="img" />
     <h3>{{ profile.name }} <div>{{ profile.title }}</div></h3>
     <p>{{ profile.description }}</p>
   </div>
@@ -17,10 +18,13 @@ export default {
       type: Object,
     },
   },
-  methods: {
-
+  data() {
+    return{
+      i: null
+    }
   },
   mounted(){
+    this.i = require('../assets/LostLake/profile/'+this.profile.img);
     gsap.from(this.$el, 1, {opacity: 0, delay: this.$vnode.key - this.$vnode.key/1.4})
   }
 }
@@ -30,7 +34,7 @@ export default {
 .img{
   height: 580px;
   width: 100%;
-  background-image: url('../assets/LostLake/profile/mark.jpeg');
+  /* background-image: url('../assets/LostLake/profile/mark.jpeg'); */
   background-size: cover;
 }
 h3{

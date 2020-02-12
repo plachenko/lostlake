@@ -49,7 +49,7 @@ align-self: center;
 position: sticky;
 width: 350px;
 height: 350px;
-top: 390px;
+top: 350px;
 }
   .test {
   display: flex;
