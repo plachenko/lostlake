@@ -45,6 +45,19 @@
         </div>
       </div>
 
+      <div class="block content" style="color:#FFF; display: flex; box-sizing: border-box; align-items: center;">
+        <div style="width: 1200px">
+          <h2 style="width: 900px; margin-top: 100px; font-size: 54px; line-height: 1.4; flex: 1; font-family: 'inputSerif'; margin-bottom: 100px;">Proven track record of creating legendary experiences.</h2>
+        </div>
+        <div style="position: relative; height: 100vh; width: 100%;">
+          <div style="width: 400px; background-color:#000; padding: 30px; z-index: 9998; position: relative;">
+            <h3>Starcraft</h3>
+            <p>Cillum nisi commodo mollit labore velit cupidatat velit non labore do. Id minim dolore incididunt ut aute quis dolor aute ad officia. Occaecat irure enim sit sint minim cillum id. Adipisicing ea nostrud ex dolor aliqua excepteur consequat eu labore ullamco magna quis. Voluptate incididunt quis non eu ullamco consequat esse sit do pariatur. Anim consequat sunt consequat tempor esse mollit voluptate voluptate Lorem dolor labore.</p>
+          </div>
+          <div class="gImg"></div>
+        </div>
+      </div>
+
       <!-- Experience section -->
       <!--
       <div id="experience" class="block content" style="color:#FFF; display: flex; box-sizing: border-box; align-items: center;">
@@ -239,4 +252,15 @@ html, body{
     line-height: 1.6;
     width: 1200px;
     }
+
+    .gImg{
+      z-index: 9996;
+      width: 100%;
+      background-image: url('./assets/LostLake/games/starcraft.jpg');
+      background-repeat:no-repeat;
+      background-size: cover;
+      height: 100%;
+      position: absolute;
+      top:0px;
+      }
 </style>
