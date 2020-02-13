@@ -106,7 +106,7 @@ export default {
 
       let st = e.target.scrollTop;
 
-      if(st < rect.height + 600){
+      if(st < rect.height + 500){
         gsap.to('nav', .6, {backgroundColor: "rgba(0,0,0,0)"});
       }else{
         gsap.to('nav', .5, {backgroundColor: "rgba(0,0,0,.5)"});
