@@ -55,12 +55,12 @@ a {
     }
   .top{
     top: 0px;
-    left: -10px;
+    left: -8px;
     border-left: solid;
     border-top: solid;
     }
   .bot{
-    right: -10px;
+    right: -8px;
     bottom: 0px;
     border-right: solid;
     border-bottom: solid;
