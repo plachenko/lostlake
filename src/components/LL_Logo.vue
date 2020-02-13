@@ -38,6 +38,7 @@ export default {
     gsap.from('.top', .5, {width: 0, height: 0})
     gsap.from('.bot', .5, {width: 0, height: 0})
 
+
   }
 }
 </script>

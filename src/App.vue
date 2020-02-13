@@ -16,14 +16,14 @@
       <div ref="atf" class="block">
         <div class="brg"></div>
         <div style="height: 150vh; position: absolute; top: 0px; width: 100%; display: flex; flex-direction: column; align-items: center;">
-          <llogo :rot="rot" />
+          <llogo ref="logo" :rot="rot" />
           <div class="mtn" style="position: sticky; bottom: 0px; height: 100vh;"></div>
         </div>
       </div>
 
       <!-- Call to action copy -->
-      <div id="imagination" class="block" style="color:#FFF; display: flex; flex-direction: row; box-sizing: border-box;">
-        <p class="cta_copy" id="test">Lorem ipsum dolor sit amet, consectetur adipising. We are a <llink>team of experiences developers</llink> Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. <llink>proven track record of creating legendary experiences</llink> Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum <llink>imagination</llink> Etiam mattis ullamcorper dui. Aliquam erat volutpat, <llink>join us</llink> oCras condimentum velit eget dui.</p>
+      <div id="imagination" class="block" style="margin-top: 485px; padding-top: 100px; color:#FFF; display: flex; flex-direction: row; box-sizing: border-box;">
+        <p class="cta_copy" id="test">Lorem ipsum dolor sit amet, consectetur adipising. We are a <llink :href="'#experience'">team of experiences developers</llink> Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. <llink :href="'#team'">proven track record of creating legendary experiences</llink> Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum <llink :href="'#imagination'">imagination</llink> Etiam mattis ullamcorper dui. Aliquam erat volutpat, <llink :href="'#contact'">join us</llink> oCras condimentum velit eget dui.</p>
       </div>
 
       <!-- Team section -->
@@ -97,6 +97,7 @@ export default {
     // llgame
   },
   mounted(){
+    let scrolled = false;
     let rect = this.$refs['atf'].getBoundingClientRect();
 
     gsap.from(this.$refs['nav'], .9, {autoAlpha: 0, delay: .3});
@@ -105,7 +106,7 @@ export default {
 
       let st = e.target.scrollTop;
 
-      if(st < rect.height){
+      if(st < rect.height + 600){
         gsap.to('nav', .6, {backgroundColor: "rgba(0,0,0,0)"});
       }else{
         gsap.to('nav', .5, {backgroundColor: "rgba(0,0,0,.5)"});
@@ -117,13 +118,19 @@ export default {
         this.rot = 45;
       }
 
-      if(st < 310){
+      if(st < 210){
+        if(scrolled){
+          this.$refs['inner'].scrollTo(0,0);
+          scrolled = false;
+        }
+
         gsap.to('.brg', .4, {autoAlpha: 1});
       }else{
+        scrolled = true;
         gsap.to('.brg', .4, {autoAlpha: 0});
-
-        return false;
       }
+
+      return false;
     });
   },
   data: function(){
@@ -242,7 +249,7 @@ html, body{
     }
   .brg{
     width: 100%;
-    height: 100%;
+    height: 125%;
     z-index: 9997;
     position: absolute;
     top:0px;
@@ -251,7 +258,7 @@ html, body{
     }
 
   .cta_copy{
-    margin: 650px 0 100px 0;
+    /* margin: 650px 0 100px 0; */
     color:#FFF;
     font-family: 'inputSerif';
     font-size: 2.4em;
