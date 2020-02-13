@@ -2,7 +2,9 @@
   <a :href="href" :target="target">
     <div ref="top" class="top"></div>
     <div ref="bot" class="bot"></div>
-    <slot />
+    <span style="white-space: normal">
+      <slot />
+    </span>
   </a>
 </template>
 <script>
@@ -44,6 +46,7 @@ a {
   /* margin: 0 10px; */
   position: relative;
   text-decoration: none;
+  white-space: nowrap;
   }
   a div{
     width: 40px;
@@ -54,14 +57,14 @@ a {
     opacity: 0;
     }
   .top{
-    top: 0px;
-    left: -8px;
+    left: -10px;
+    top: -5px;
     border-left: solid;
     border-top: solid;
     }
   .bot{
-    right: -8px;
-    bottom: 0px;
+    right: -10px;
+    bottom: -5px;
     border-right: solid;
     border-bottom: solid;
     margin-top: auto;

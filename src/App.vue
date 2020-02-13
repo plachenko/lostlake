@@ -22,8 +22,8 @@
       </div>
 
       <!-- Call to action copy -->
-      <div id="imagination" class="block" style="margin-top: 460px; padding-top: 100px; color:#FFF; display: flex; flex-direction: row; box-sizing: border-box;">
-        <p class="cta_copy" id="test">Lorem ipsum dolor sit amet, consectetur adipising. We are a <llink :href="'#experience'">team of experiences developers</llink> Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. <llink :href="'#team'">proven track record of creating legendary experiences</llink> Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum <llink :href="'#imagination'">imagination</llink> Etiam mattis ullamcorper dui. Aliquam erat volutpat, <llink :href="'#contact'">join us</llink> oCras condimentum velit eget dui.</p>
+      <div id="imagination" class="block" style="margin-top: 485px; padding-top: 100px; color:#FFF; display: flex; flex-direction: row; box-sizing: border-box;">
+        <p class="cta_copy" id="test">Lorem ipsum dolor sit amet, consectetur adipising. We are a <llink :href="'#experience'">team of developers</llink> Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. <br /><llink :href="'#team'">proven track record of experiences</llink> Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum <llink :href="'#imagination'">imagination</llink> Etiam mattis ullamcorper dui. Aliquam erat volutpat, lorem <llink :href="'#contact'">join us</llink> oCras condimentum velit eget dui.</p>
       </div>
 
       <!-- Team section -->
