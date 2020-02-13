@@ -1,14 +1,16 @@
 <template>
-  <div class="game">
-    <h3>{{ game.name }}</h3>
-    <div class="img" />
-    <p>{{ game.description }}</p>
+  <div class="cont">
+    <div class="inner">
+      <div ref="desc" class="pos">
+        <h3>{{game.name}}</h3>
+        <p>{{game.desc}}</p>
+      </div>
+    </div>
+    <div class="gImg" :style="{ backgroundImage: `url('${i}')`}" />
   </div>
 </template>
 
 <script>
-// import gsap from 'gsap';
-
 export default {
   name: 'llgame',
   props: {
@@ -16,35 +18,67 @@ export default {
       type: Object,
     }
   },
+  data() {
+    return{
+      i: null
+    }
+  },
   methods: {
 
   },
   mounted(){
-    // gsap.from(this.$el, 1, {opacity: 0, delay: this.$vnode.key - this.$vnode.key/1.4})
+    this.i = require('../assets/LostLake/games/'+this.game.img);
+    if((this.$vnode.key+1) % 2 == 0){
+      this.$refs['desc'].style.float = "right";
+    } else {
+      this.$refs['desc'].style.float = "left";
+    }
   }
 }
 </script>
 
 <style scoped>
-.game{
-  box-sizing: content-box;
-}
-.img{
-  height: 500px;
-  position: absolute;
+.cont{
+  position: relative;
+  height: 100vh;
   width: 100%;
-  background-color:#F00;
-}
-h3{
-  width: 30px;
-  font-size: 40px;
-  margin-top: -70px;
-}
-
-p{
-  padding-right: 40px;
-  margin-top: 40px;
-  width: 400px;
-  background-color:#000;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 100px;
   }
+  .pos{
+    background-color:#000;
+    padding: 30px;
+    height: 90%;
+    float: left;
+    }
+    .pos h3{
+      font-family: 'inputSerif';
+      font-size: 2.4em;
+      margin-bottom: 30px;
+      margin-top: 100px
+      }
+      .pos p{
+        color: rgb(151, 191, 222);
+        width: 300px;
+        line-height: 1.7;
+        font-family: 'inputSerifCondensed';
+        font-size: .8em;
+        }
+.inner{
+  width: 1200px;
+  height: 100%;
+  z-index: 9998;
+  position: relative;
+  align-self: center;
+  }
+    .gImg{
+      z-index: 9996;
+      width: 100%;
+      background-repeat:no-repeat;
+      background-size: cover;
+      height: 100%;
+      position: absolute;
+      top:0px;
+      }
 </style>

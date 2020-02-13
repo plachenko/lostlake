@@ -28,7 +28,7 @@
 
       <!-- Team section -->
       <div id="team" class="block content" style="color:#FFF; display: flex; box-sizing: border-box; align-items: center;">
-        <div style="width: 1200px">
+        <div class="innercont" style="width: 1200px">
           <h2 style="margin-top: 100px; font-size: 54px; line-height: 1.4; flex: 1; font-family: 'inputSerif'; margin-bottom: 100px;">Team of experienced developers.</h2>
         </div>
         <div style="flex-direction: row; display: flex; width: 1200px;">
@@ -38,41 +38,15 @@
 
       <!-- Experience -->
       <div id="experience" class="block content" style="color:#FFF; display: flex; box-sizing: border-box; align-items: center;">
-        <div style="width: 1200px; margin-bottom: 40px;">
+        <div class="innercont" style="width: 1200px; margin-bottom: 40px;">
           <h2 style="width: 900px; margin-top: 100px; font-size: 54px; line-height: 1.4; flex: 1; font-family: 'inputSerif'; margin-bottom: 100px;">Proven track record of creating legendary experiences.</h2>
         </div>
-        <div style="position: relative; height: 100vh; width: 100%; display: flex; flex-direction: column; margin-bottom: 100px">
-          <div style="width: 1200px; height: 100%; z-index: 9998; position: relative; align-self: center;">
-            <div style="background-color:#000; padding: 30px; height: 90%; float: left; ">
-              <h3 style="font-family: 'inputSerif'; font-size: 2.4em; margin-bottom: 30px; margin-top: 100px">Starcraft</h3>
-              <p style="color: rgb(151, 191, 222); width: 300px; line-height: 1.7; font-family: 'inputSerifCondensed'; font-size: .8em;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum. Etiam mattis ullamcorper dui. Aliquam erat volutpat. Cras condimentum velit eget dui pellentesque, eu efficitur est pretium. Vivamus rutrum eros nec neque tincidunt, in volutpat mi fringilla. Donec vestibulum sodales justo, eu tempor libero gravida blandit. Maecenas sodales est quis nulla gravida convallis. Duis eu sem quis augue pharetra sodales.</p>
-            </div>
-          </div>
-          <div class="gImg"></div>
-        </div>
-        <div style="position: relative; height: 100vh; width: 100%; display: flex; flex-direction: column; margin-bottom: 100px">
-          <div style="width: 1200px; height: 100%; z-index: 9998; position: relative; align-self: center;">
-            <div style="background-color:#000; padding: 30px; height: 90%; float: right; ">
-              <h3 style="font-family: 'inputSerif'; font-size: 2.4em; margin-bottom: 30px; margin-top: 100px">Guild Wars</h3>
-              <p style="color: rgb(151, 191, 222); width: 300px; line-height: 1.7; font-family: 'inputSerifCondensed'; font-size: .8em;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum. Etiam mattis ullamcorper dui. Aliquam erat volutpat. Cras condimentum velit eget dui pellentesque, eu efficitur est pretium. Vivamus rutrum eros nec neque tincidunt, in volutpat mi fringilla. Donec vestibulum sodales justo, eu tempor libero gravida blandit. Maecenas sodales est quis nulla gravida convallis. Duis eu sem quis augue pharetra sodales.</p>
-            </div>
-          </div>
-          <div class="gImg2"></div>
-        </div>
-        <div style="position: relative; height: 100vh; width: 100%; display: flex; flex-direction: column;">
-          <div style="width: 1200px; height: 100%; z-index: 9998; position: relative; align-self: center;">
-            <div style="background-color:#000; padding: 30px; height: 90%; float: left; ">
-              <h3 style="font-family: 'inputSerif'; font-size: 2.4em; margin-bottom: 30px; margin-top: 100px">Gigantic</h3>
-              <p style="color: rgb(151, 191, 222); width: 300px; line-height: 1.7; font-family: 'inputSerifCondensed'; font-size: .8em;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum. Etiam mattis ullamcorper dui. Aliquam erat volutpat. Cras condimentum velit eget dui pellentesque, eu efficitur est pretium. Vivamus rutrum eros nec neque tincidunt, in volutpat mi fringilla. Donec vestibulum sodales justo, eu tempor libero gravida blandit. Maecenas sodales est quis nulla gravida convallis. Duis eu sem quis augue pharetra sodales.</p>
-            </div>
-          </div>
-          <div class="gImg3"></div>
-        </div>
+        <llgame v-for="(g, k) in experiences" :key="k" :game="g" />
       </div>
 
       <!-- Contact -->
       <div id="contact" class="block" style="font-family: 'inputSerif'; font-size: 3em; color:#FFF; display: flex; align-items: center; box-sizing: border-box;">
-        <div style="width: 1200px;">
+        <div class="innercont">
           Join us
         </div>
       </div>
@@ -86,15 +60,15 @@ import gsap from 'gsap';
 import llink from './components/LL_Link.vue';
 import llogo from './components/LL_Logo.vue';
 import llprofile from './components/LL_Profile.vue';
-// import llgame from './components/LL_Game.vue';
+import llgame from './components/LL_Game.vue';
 
 export default {
   name: 'App',
   components:{
     llink,
     llogo,
-    llprofile
-    // llgame
+    llprofile,
+    llgame
   },
   mounted(){
     let scrolled = false;
@@ -139,15 +113,18 @@ export default {
       experiences: [
         {
           name: 'Starcraft',
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum. Etiam mattis ullamcorper dui. Aliquam erat volutpat. Cras condimentum velit eget dui pellentesque, eu efficitur est pretium. Vivamus rutrum eros nec neque tincidunt, in volutpat mi fringilla. Donec vestibulum sodales justo, eu tempor libero gravida blandit. Maecenas sodales est quis nulla gravida convallis. Duis eu sem quis augue pharetra sodales."
+          img: 'starcraft.jpg',
+          desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum. Etiam mattis ullamcorper dui. Aliquam erat volutpat. Cras condimentum velit eget dui pellentesque, eu efficitur est pretium. Vivamus rutrum eros nec neque tincidunt, in volutpat mi fringilla. Donec vestibulum sodales justo, eu tempor libero gravida blandit. Maecenas sodales est quis nulla gravida convallis. Duis eu sem quis augue pharetra sodales."
         },
         {
           name: 'Guild Wars',
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum. Etiam mattis ullamcorper dui. Aliquam erat volutpat. Cras condimentum velit eget dui pellentesque, eu efficitur est pretium. Vivamus rutrum eros nec neque tincidunt, in volutpat mi fringilla. Donec vestibulum sodales justo, eu tempor libero gravida blandit. Maecenas sodales est quis nulla gravida convallis. Duis eu sem quis augue pharetra sodales."
+          img: 'guildwars.jpg',
+          desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum. Etiam mattis ullamcorper dui. Aliquam erat volutpat. Cras condimentum velit eget dui pellentesque, eu efficitur est pretium. Vivamus rutrum eros nec neque tincidunt, in volutpat mi fringilla. Donec vestibulum sodales justo, eu tempor libero gravida blandit. Maecenas sodales est quis nulla gravida convallis. Duis eu sem quis augue pharetra sodales."
         },
         {
           name: 'Gigantic',
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum. Etiam mattis ullamcorper dui. Aliquam erat volutpat. Cras condimentum velit eget dui pellentesque, eu efficitur est pretium. Vivamus rutrum eros nec neque tincidunt, in volutpat mi fringilla. Donec vestibulum sodales justo, eu tempor libero gravida blandit. Maecenas sodales est quis nulla gravida convallis. Duis eu sem quis augue pharetra sodales."
+          img: 'gigantic.jpg',
+          desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum. Etiam mattis ullamcorper dui. Aliquam erat volutpat. Cras condimentum velit eget dui pellentesque, eu efficitur est pretium. Vivamus rutrum eros nec neque tincidunt, in volutpat mi fringilla. Donec vestibulum sodales justo, eu tempor libero gravida blandit. Maecenas sodales est quis nulla gravida convallis. Duis eu sem quis augue pharetra sodales."
         },
       ],
       profiles: [
@@ -267,35 +244,8 @@ html, body{
     line-height: 1.6;
     width: 1200px;
     }
+    .innercont{
+      width: 1200px;
+    }
 
-    .gImg{
-      z-index: 9996;
-      width: 100%;
-      background-image: url('./assets/LostLake/games/starcraft.jpg');
-      background-repeat:no-repeat;
-      background-size: cover;
-      height: 100%;
-      position: absolute;
-      top:0px;
-      }
-    .gImg2{
-      z-index: 9996;
-      width: 100%;
-      background-image: url('./assets/LostLake/games/guildwars.jpg');
-      background-repeat:no-repeat;
-      background-size: cover;
-      height: 100%;
-      position: absolute;
-      top:0px;
-      }
-    .gImg3{
-      z-index: 9996;
-      width: 100%;
-      background-image: url('./assets/LostLake/games/gigantic.jpg');
-      background-repeat:no-repeat;
-      background-size: cover;
-      height: 100%;
-      position: absolute;
-      top:0px;
-      }
 </style>

@@ -1,7 +1,5 @@
 <template>
   <div class="profile">
-    <!-- <div class="img" /> -->
-    <!-- <img :src="'/img/'+profile.img" /> -->
     <div :style="{ backgroundImage: `url('${i}')`}" class="img" />
     <h3>{{ profile.name }} <div>{{ profile.title }}</div></h3>
     <p>{{ profile.description }}</p>
