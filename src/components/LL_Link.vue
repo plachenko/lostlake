@@ -22,17 +22,28 @@ export default {
       default: '#'
     }
   },
+  data: function(){
+    return {
+      out: false
+    }
+  },
   mounted(){
     this.$el.addEventListener('mouseout', () => {
-      gsap.to(this.$refs['top'], .4 , {opacity: 0});
-      gsap.to(this.$refs['bot'], .4 , {opacity: 0});
+      this.out = true;
+      if(this.out){
+        gsap.to(this.$refs['top'], .2 , {opacity: 0});
+        gsap.to(this.$refs['bot'], .2 , {opacity: 0});
+      }
     })
 
     this.$el.addEventListener('mouseenter', () => {
-      gsap.from(this.$refs['top'], .2,  {left: '-20'});
-      gsap.from(this.$refs['bot'], .2, {right: '-20'});
-      gsap.to(this.$refs['top'], .4,  {opacity: 1});
-      gsap.to(this.$refs['bot'], .4,  {opacity: 1});
+      this.out = false;
+      if(!this.out){
+        gsap.from(this.$refs['top'], .2,  {left: '-20'});
+        gsap.from(this.$refs['bot'], .2, {right: '-20'});
+        gsap.to(this.$refs['top'], .2,  {opacity: 1});
+        gsap.to(this.$refs['bot'], .2,  {opacity: 1});
+      }
     })
   }
 }

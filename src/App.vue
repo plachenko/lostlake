@@ -3,11 +3,6 @@
 
     <llnav ref="nav" />
 
-    <!-- Scrollbar -->
-    <div id="scrollbar">
-      <div @mousedown="clicked=true" @mouseup="clicked=false" id="logoScroll" ref="logoScroll"></div>
-    </div>
-
     <div id="content" ref="inner">
 
       <!-- Above the fold -->
@@ -39,7 +34,10 @@
         <div class="innercont">
           <h2>Proven track record of creating legendary experiences.</h2>
         </div>
-        <llgame v-for="(g, k) in experiences" :key="k" :game="g" />
+        <div class="innercont">
+          <llprofile v-for="(g, k) in experiences" :key="k" :profile="g" :game="true" :bgpos="g.bgPos" />
+        </div>
+        <!-- <llgame v-for="(g, k) in experiences" :key="k" :game="g" /> -->
       </div>
 
       <!-- Contact -->
@@ -48,10 +46,6 @@
           Join us
         </div>
       </div>
-
-      <!-- <div class="block">
-        <img id="foot" style="opacity: 0;" src="./assets/LostLake/logo_center2.png" />
-      </div> -->
     </div>
 
   </div>
@@ -59,75 +53,45 @@
 
 <script>
 import gsap from 'gsap';
+import llnav from './components/LL_Nav.vue';
 import llink from './components/LL_Link.vue';
 import llogo from './components/LL_Logo.vue';
 import llprofile from './components/LL_Profile.vue';
-import llgame from './components/LL_Game.vue';
-import llnav from './components/LL_Nav.vue';
+// import llgame from './components/LL_Game.vue';
 
 export default {
   name: 'App',
   components:{
+    llnav,
     llink,
     llogo,
     llprofile,
-    llgame,
-    llnav
+    // llgame
   },
   mounted(){
     let scrolled = false;
     let rect = this.$refs['atf'].getBoundingClientRect();
 
     gsap.from(this.$refs['nav'].$el, .9, {autoAlpha: 0, delay: .3});
-    /*
-    document.addEventListener('mousemove', (e)=>{
-      if(this.clicked){
-        this.$refs['logoScroll'].style.top = (e.offsetY-50)+"px";
-      }
-    })
-    */
 
     this.$refs['inner'].addEventListener('scroll', (e) => {
       e.preventDefault();
 
       let st = e.target.scrollTop;
-      // let foot = false;
-
-      this.$refs['logoScroll'].style.top = Math.round(st/11)+"px";
-
-      /*
-      if(Math.round(st/11) < 760){
-        foot = false;
-      } else {
-        foot = true;
-      }
-      */
 
       this.$nextTick(()=>{
-        /*
-        if(foot && st < rect.height){
-          gsap.to("#scrollbar", .3, {autoAlpha: 0});
-          gsap.to("#foot", .3, {autoAlpha: 1});
-        }else{
-          gsap.to("#scrollbar", .3, {autoAlpha: 1});
-          gsap.to("#foot", .3, {autoAlpha: 0});
-        }
-        */
-
         if(st < rect.height){
           gsap.to(this.$refs['logo'].$el, .3, {autoAlpha: 1});
-          gsap.to("#scrollbar", .3, {autoAlpha: 0});
         }else{
           gsap.to(this.$refs['logo'].$el, .3, {autoAlpha: 0});
-          // if(!foot){
-            gsap.to("#scrollbar", .3, {autoAlpha: 1});
-          // }
         }
       })
 
-      if(st < rect.height + 500){
+      if(st < rect.height + 430){
+        gsap.to("#content", .3, {'margin-right': -17});
         gsap.to('nav', .6, {backgroundColor: "rgba(0,0,0,0)"});
       }else{
+        gsap.to("#content", .3, {'margin-right': 0});
         gsap.to('nav', .5, {backgroundColor: "rgba(0,0,0,.5)"});
       }
 
@@ -158,19 +122,22 @@ export default {
       clicked: false,
       experiences: [
         {
+          bgPos: -240,
           name: 'Starcraft',
           img: 'starcraft.jpg',
-          desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum. Etiam mattis ullamcorper dui. Aliquam erat volutpat. Cras condimentum velit eget dui pellentesque, eu efficitur est pretium. Vivamus rutrum eros nec neque tincidunt, in volutpat mi fringilla. Donec vestibulum sodales justo, eu tempor libero gravida blandit. Maecenas sodales est quis nulla gravida convallis. Duis eu sem quis augue pharetra sodales."
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum. Etiam mattis ullamcorper dui. Aliquam erat volutpat. Cras condimentum velit eget dui pellentesque, eu efficitur est pretium. Vivamus rutrum eros nec neque tincidunt, in volutpat mi fringilla. Donec vestibulum sodales justo, eu tempor libero gravida blandit. Maecenas sodales est quis nulla gravida convallis. Duis eu sem quis augue pharetra sodales."
         },
         {
+          bgPos: -100,
           name: 'Guild Wars',
           img: 'guildwars.jpg',
-          desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum. Etiam mattis ullamcorper dui. Aliquam erat volutpat. Cras condimentum velit eget dui pellentesque, eu efficitur est pretium. Vivamus rutrum eros nec neque tincidunt, in volutpat mi fringilla. Donec vestibulum sodales justo, eu tempor libero gravida blandit. Maecenas sodales est quis nulla gravida convallis. Duis eu sem quis augue pharetra sodales."
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum. Etiam mattis ullamcorper dui. Aliquam erat volutpat. Cras condimentum velit eget dui pellentesque, eu efficitur est pretium. Vivamus rutrum eros nec neque tincidunt, in volutpat mi fringilla. Donec vestibulum sodales justo, eu tempor libero gravida blandit. Maecenas sodales est quis nulla gravida convallis. Duis eu sem quis augue pharetra sodales."
         },
         {
+          bgPos: -550,
           name: 'Gigantic',
           img: 'gigantic.jpg',
-          desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum. Etiam mattis ullamcorper dui. Aliquam erat volutpat. Cras condimentum velit eget dui pellentesque, eu efficitur est pretium. Vivamus rutrum eros nec neque tincidunt, in volutpat mi fringilla. Donec vestibulum sodales justo, eu tempor libero gravida blandit. Maecenas sodales est quis nulla gravida convallis. Duis eu sem quis augue pharetra sodales."
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum. Etiam mattis ullamcorper dui. Aliquam erat volutpat. Cras condimentum velit eget dui pellentesque, eu efficitur est pretium. Vivamus rutrum eros nec neque tincidunt, in volutpat mi fringilla. Donec vestibulum sodales justo, eu tempor libero gravida blandit. Maecenas sodales est quis nulla gravida convallis. Duis eu sem quis augue pharetra sodales."
         },
       ],
       profiles: [
@@ -178,19 +145,19 @@ export default {
           name: 'James Phinney',
           title: 'Game Design',
           img: 'james.jpg',
-          description: "Cliff figured out that creating something is basically magic, and has been excavating the mysterious spaces of imagination since. Doing this in any form is thrilling, but doing it together is among the best things humans do. Cliff launched a lifelong adventure in what he considers to be the pinnacle of creative effort and expression - the gaming industry. To craft whole other worlds, settings, and experiences is really, truly, something tremendous. Most recently Cliff worked to bring the new God of War to life, and now, having found Bonfire - a place that seems custom made around his interests - he is more excited than ever before."
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum. Etiam mattis ullamcorper dui. Aliquam erat volutpat. Cras condimentum velit eget dui pellentesque, eu efficitur est pretium. Vivamus rutrum eros nec neque tincidunt, in volutpat mi fringilla. Donec vestibulum sodales justo, eu tempor libero gravida blandit. Maecenas sodales est quis nulla gravida convallis. Duis eu sem quis augue pharetra sodales."
         },
         {
           name: 'Joe Pikop',
           title: 'Creative Direction',
           img: 'joe.jpg',
-          description: "When Anna's parents told her no one would ever pay her to play video games, she embarked on a lifelong quest to prove them wrong. She studied Game Design and Development at Rochester Institute of Technology, and started her career as a programmer for Microsoft Games Studio. She moved to Valve to grow the Steam platform, and she helped launch the HTC Vive. When she moved to the bay area to run Content Strategy at Oculus, she knew it was time to live her Stardew Valley dream of opening a nonprofit farm for rescue animals. You can learn more about Sweet Farm and her journey to Bonfire in her origin story"
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum. Etiam mattis ullamcorper dui. Aliquam erat volutpat. Cras condimentum velit eget dui pellentesque, eu efficitur est pretium. Vivamus rutrum eros nec neque tincidunt, in volutpat mi fringilla. Donec vestibulum sodales justo, eu tempor libero gravida blandit. Maecenas sodales est quis nulla gravida convallis. Duis eu sem quis augue pharetra sodales."
         },
         {
           name: 'Mark Podorf',
           title: 'Technology',
           img: 'mark.jpeg',
-          description: "Dave got his start by doing QA, set building, and movie editing for the claymation games The Neverhood and Skullmonkeys. He built levels for Metal Arms: Glitch in the System before he started at Blizzard on WoW - working on zones like Howling Fjord and Grizzly Hills. He moved to Diablo III, where he designed exterior zones, dungeons, boss fights, and events. On Overwatch, he created Hollywood, based on inspiration from a visit to the Warner Bros. backlot, Watchpoint: Gibraltar, Horizon Lunar Colony, and Illios among others. At Bonfire, Dave is excited to create levels for our new IP, and to make us listen to his playlist - Davesneylandworld."
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum. Etiam mattis ullamcorper dui. Aliquam erat volutpat. Cras condimentum velit eget dui pellentesque, eu efficitur est pretium. Vivamus rutrum eros nec neque tincidunt, in volutpat mi fringilla. Donec vestibulum sodales justo, eu tempor libero gravida blandit. Maecenas sodales est quis nulla gravida convallis. Duis eu sem quis augue pharetra sodales."
         }
       ]
     }
@@ -308,21 +275,21 @@ html, body{
     }
 
     #scrollbar{
-      opacity: 0; 
-      width:100px; 
-      height: 90%; 
-      position: fixed; 
-      right:0px; 
-      z-index:9997; 
+      opacity: 0;
+      width:100px;
+      height: 90%;
+      position: fixed;
+      right:0px;
+      z-index:9997;
       bottom: 0px;
     }
 
     #logoScroll{
-      height: 100px; 
-      width:100%; 
-      background-image: url('./assets/LostLake/logo_center2.png'); 
-      background-size: cover; 
-      position: absolute; 
+      height: 100px;
+      width:100%;
+      background-image: url('./assets/LostLake/logo_center2.png');
+      background-size: cover;
+      position: absolute;
       z-index:9999;
     }
 

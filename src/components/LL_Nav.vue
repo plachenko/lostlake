@@ -18,7 +18,7 @@ export default {
     z-index: 9999;
     position: fixed;
     top:0px;
-    right: 0px;
+    right: 17px;
     width: 100%;
     padding: 25px 10px 25px 0px;
     font-family: 'inputSerif';
