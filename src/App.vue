@@ -4,8 +4,8 @@
     <llnav ref="nav" />
 
     <!-- Scrollbar -->
-    <div id="scrollbar" style="opacity: 0; width:100px; height: 90%; position: fixed; right:0px; z-index:9997; bottom: 0px;">
-      <div @mousedown="clicked=true" @mouseup="clicked=false" ref="logoScroll" style="height: 100px; width:100%; background-color:#F0F; position: absolute; z-index:9998;"></div>
+    <div id="scrollbar">
+      <div @mousedown="clicked=true" @mouseup="clicked=false" id="logoScroll" ref="logoScroll"></div>
     </div>
 
     <div id="content" ref="inner">
@@ -48,6 +48,10 @@
           Join us
         </div>
       </div>
+
+      <!-- <div class="block">
+        <img id="foot" style="opacity: 0;" src="./assets/LostLake/logo_center2.png" />
+      </div> -->
     </div>
 
   </div>
@@ -87,16 +91,37 @@ export default {
       e.preventDefault();
 
       let st = e.target.scrollTop;
+      // let foot = false;
 
       this.$refs['logoScroll'].style.top = Math.round(st/11)+"px";
 
+      /*
+      if(Math.round(st/11) < 760){
+        foot = false;
+      } else {
+        foot = true;
+      }
+      */
+
       this.$nextTick(()=>{
+        /*
+        if(foot && st < rect.height){
+          gsap.to("#scrollbar", .3, {autoAlpha: 0});
+          gsap.to("#foot", .3, {autoAlpha: 1});
+        }else{
+          gsap.to("#scrollbar", .3, {autoAlpha: 1});
+          gsap.to("#foot", .3, {autoAlpha: 0});
+        }
+        */
+
         if(st < rect.height){
           gsap.to(this.$refs['logo'].$el, .3, {autoAlpha: 1});
           gsap.to("#scrollbar", .3, {autoAlpha: 0});
         }else{
           gsap.to(this.$refs['logo'].$el, .3, {autoAlpha: 0});
-          gsap.to("#scrollbar", .3, {autoAlpha: 1});
+          // if(!foot){
+            gsap.to("#scrollbar", .3, {autoAlpha: 1});
+          // }
         }
       })
 
@@ -280,6 +305,25 @@ html, body{
     .innercont{
       display: flex;
       width: 1200px;
+    }
+
+    #scrollbar{
+      opacity: 0; 
+      width:100px; 
+      height: 90%; 
+      position: fixed; 
+      right:0px; 
+      z-index:9997; 
+      bottom: 0px;
+    }
+
+    #logoScroll{
+      height: 100px; 
+      width:100%; 
+      background-image: url('./assets/LostLake/logo_center2.png'); 
+      background-size: cover; 
+      position: absolute; 
+      z-index:9999;
     }
 
 </style>
