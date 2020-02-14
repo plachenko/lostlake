@@ -15,37 +15,37 @@
       <!-- Above the fold -->
       <div ref="atf" class="block">
         <div class="brg"></div>
-        <div style="height: 150vh; position: absolute; top: 0px; width: 100%; display: flex; flex-direction: column; align-items: center;">
+        <div id="logoCont">
           <llogo ref="logo" :rot="rot" />
-          <div class="mtn" style="position: sticky; bottom: 0px; height: 100vh;"></div>
+          <div class="mtn"></div>
         </div>
       </div>
 
       <!-- Call to action copy -->
-      <div id="imagination" class="block" style="margin-top: 485px; padding-top: 100px; color:#FFF; display: flex; flex-direction: row; box-sizing: border-box;">
+      <div id="imagination" class="block">
         <p class="cta_copy" id="test">Lorem ipsum dolor sit amet, consectetur adipising. We are a <llink :href="'#experience'">team of developers</llink> Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. <br /><llink :href="'#team'">proven track record of experiences</llink> Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum <llink :href="'#imagination'">imagination</llink> Etiam mattis ullamcorper dui. Aliquam erat volutpat, lorem <llink :href="'#contact'">join us</llink> oCras condimentum velit eget dui.</p>
       </div>
 
       <!-- Team section -->
-      <div id="team" class="block content" style="color:#FFF; display: flex; box-sizing: border-box; align-items: center;">
-        <div class="innercont" style="width: 1200px">
-          <h2 style="margin-top: 100px; font-size: 54px; line-height: 1.4; flex: 1; font-family: 'inputSerif'; margin-bottom: 100px;">Team of experienced developers.</h2>
+      <div id="team" class="block content">
+        <div class="innercont">
+          <h2>Team of experienced developers.</h2>
         </div>
-        <div style="flex-direction: row; display: flex; width: 1200px;">
+        <div class="innercont">
           <llprofile v-for="(p, k) in profiles" :key="k" :profile="p" />
         </div>
       </div>
 
       <!-- Experience -->
-      <div id="experience" class="block content" style="color:#FFF; display: flex; box-sizing: border-box; align-items: center;">
-        <div class="innercont" style="width: 1200px; margin-bottom: 40px;">
-          <h2 style="width: 900px; margin-top: 100px; font-size: 54px; line-height: 1.4; flex: 1; font-family: 'inputSerif'; margin-bottom: 100px;">Proven track record of creating legendary experiences.</h2>
+      <div id="experience" class="block content">
+        <div class="innercont">
+          <h2>Proven track record of creating legendary experiences.</h2>
         </div>
         <llgame v-for="(g, k) in experiences" :key="k" :game="g" />
       </div>
 
       <!-- Contact -->
-      <div id="contact" class="block" style="font-family: 'inputSerif'; font-size: 3em; color:#FFF; display: flex; align-items: center; box-sizing: border-box;">
+      <div id="contact" class="block">
         <div class="innercont">
           Join us
         </div>
@@ -162,6 +162,10 @@ html, body{
   width: 100%;
   }
 
+#contact{
+  font-family: 'inputSerif';
+  font-size: 3em;
+  }
   nav {
     z-index: 9999;
     position: fixed;
@@ -188,6 +192,15 @@ html, body{
         display: inline-block;
         }
 
+#logoCont{
+  height: 150vh;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
 #top{
   width: 100px;
   height: 100px;
@@ -214,12 +227,18 @@ html, body{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    color:#FFF;
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
     }
   .mtn{
+    position: sticky;
+    bottom: 0px;
+    height: 100vh;
     width: 100%;
     height: 100%;
     top:0px;
-    position: absolute;
     z-index: 9996;
     background-size: cover !important;
     background: url('./assets/LostLake/bangla.png') no-repeat center center;
@@ -244,6 +263,15 @@ html, body{
     line-height: 1.6;
     width: 1200px;
     }
+    .innercont h2{
+      width: 900px;
+      margin-top: 100px;
+      font-size: 54px;
+      line-height: 1.4;
+      flex: 1;
+      font-family: 'inputSerif';
+      margin-bottom: 100px;
+      }
     .innercont{
       width: 1200px;
     }

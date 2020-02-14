@@ -2,7 +2,7 @@
   <a :href="href" :target="target">
     <div ref="top" class="top"></div>
     <div ref="bot" class="bot"></div>
-    <span style="white-space: normal">
+    <span>
       <slot />
     </span>
   </a>
