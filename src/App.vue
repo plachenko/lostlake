@@ -43,7 +43,7 @@
       <!-- Contact -->
       <div id="contact" class="block">
         <div class="innercont">
-          Join us
+          <llink :href="'#'">hello@lostlake.com</llink>
         </div>
       </div>
     </div>
