@@ -1,14 +1,12 @@
 <template>
   <div id="app">
 
-    <nav ref="nav">
-      <ul>
-        <li><a href="#team">Team.</a></li>
-        <li><a href="#experience">Experience.</a></li>
-        <li><a href="#imagination">Imagination.</a></li>
-        <li><a href="#contact">Contact.</a></li>
-      </ul>
-    </nav>
+    <llnav ref="nav" />
+
+    <!-- Scrollbar -->
+    <div id="scrollbar" style="opacity: 0; width:100px; height: 90%; position: fixed; right:0px; z-index:9997; bottom: 0px;">
+      <div @mousedown="clicked=true" @mouseup="clicked=false" ref="logoScroll" style="height: 100px; width:100%; background-color:#F0F; position: absolute; z-index:9998;"></div>
+    </div>
 
     <div id="content" ref="inner">
 
@@ -61,6 +59,7 @@ import llink from './components/LL_Link.vue';
 import llogo from './components/LL_Logo.vue';
 import llprofile from './components/LL_Profile.vue';
 import llgame from './components/LL_Game.vue';
+import llnav from './components/LL_Nav.vue';
 
 export default {
   name: 'App',
@@ -68,17 +67,38 @@ export default {
     llink,
     llogo,
     llprofile,
-    llgame
+    llgame,
+    llnav
   },
   mounted(){
     let scrolled = false;
     let rect = this.$refs['atf'].getBoundingClientRect();
 
-    gsap.from(this.$refs['nav'], .9, {autoAlpha: 0, delay: .3});
+    gsap.from(this.$refs['nav'].$el, .9, {autoAlpha: 0, delay: .3});
+    /*
+    document.addEventListener('mousemove', (e)=>{
+      if(this.clicked){
+        this.$refs['logoScroll'].style.top = (e.offsetY-50)+"px";
+      }
+    })
+    */
+
     this.$refs['inner'].addEventListener('scroll', (e) => {
       e.preventDefault();
 
       let st = e.target.scrollTop;
+
+      this.$refs['logoScroll'].style.top = Math.round(st/11)+"px";
+
+      this.$nextTick(()=>{
+        if(st < rect.height){
+          gsap.to(this.$refs['logo'].$el, .3, {autoAlpha: 1});
+          gsap.to("#scrollbar", .3, {autoAlpha: 0});
+        }else{
+          gsap.to(this.$refs['logo'].$el, .3, {autoAlpha: 0});
+          gsap.to("#scrollbar", .3, {autoAlpha: 1});
+        }
+      })
 
       if(st < rect.height + 500){
         gsap.to('nav', .6, {backgroundColor: "rgba(0,0,0,0)"});
@@ -110,6 +130,7 @@ export default {
   data: function(){
     return {
       rot: 0,
+      clicked: false,
       experiences: [
         {
           name: 'Starcraft',
@@ -153,6 +174,45 @@ export default {
 </script>
 
 <style>
+
+.mtn, .brg{
+  width: 100%;
+  background-size: cover !important;
+  }
+  .mtn{
+    position: sticky;
+    height: 100vh;
+    z-index: 9996;
+    bottom: 0px;
+    background: url('./assets/LostLake/bangla.png') no-repeat center center;
+    /* padding-bottom: -125px; */
+    }
+  .brg{
+    position: absolute;
+    height: 125%;
+    top:0px;
+    z-index: 9997;
+    background: url('./assets/LostLake/bridge.jpg') no-repeat center center;
+    }
+.block{
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background-color:#000;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color:#FFF;
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  }
+  .block:first-child{
+    margin-bottom: 450px;
+    padding-bottom: 200px;
+    }
+
 *{
   margin: 0px;
   padding: 0px;
@@ -166,34 +226,10 @@ html, body{
   font-family: 'inputSerif';
   font-size: 3em;
   }
-  nav {
-    z-index: 9999;
-    position: fixed;
-    top:0px;
-    right: 0px;
-    width: 100%;
-    padding: 25px 10px 25px 0px;
-    font-family: 'inputSerif';
-    font-weight: bold;
-    font-size: 1em;
-    }
-    nav ul {
-      display: block;
-      position: relative;
-      float: right;
-      }
-    nav li{
-      display: inline-block;
-      }
-      nav a{
-        text-decoration: none;
-        color:#FFF;
-        padding: 10px 15px 10px 15px;
-        display: inline-block;
-        }
 
 #logoCont{
-  height: 150vh;
+  /* height: 163vh; */
+  /* height: 1684px; */
   position: absolute;
   top: 0px;
   width: 100%;
@@ -218,49 +254,18 @@ html, body{
     overflow-y: scroll;
     margin-right: -17px;
     }
-  .block{
-    position: relative;
-    min-height: 100vh;
-    width: 100%;
-    background-color:#000;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color:#FFF;
-    display: flex;
-    box-sizing: border-box;
-    align-items: center;
-    }
-  .mtn{
-    position: sticky;
-    bottom: 0px;
-    height: 100vh;
-    width: 100%;
-    height: 100%;
-    top:0px;
-    z-index: 9996;
-    background-size: cover !important;
-    background: url('./assets/LostLake/bangla.png') no-repeat center center;
-    }
-  .brg{
-    width: 100%;
-    height: 125%;
-    z-index: 9997;
-    position: absolute;
-    top:0px;
-    background-size: cover !important;
-    background: url('./assets/LostLake/bridge.jpg') no-repeat center center;
-    }
+
+
 
   .cta_copy{
     /* margin: 650px 0 100px 0; */
     color:#FFF;
     font-family: 'inputSerif';
-    font-size: 2.4em;
+    font-size: 2.5em;
     font-weight: 900;
     color: rgb(69, 101, 120);
     line-height: 1.6;
+    /* width: 90vw; */
     width: 1200px;
     }
     .innercont h2{
@@ -273,6 +278,7 @@ html, body{
       margin-bottom: 100px;
       }
     .innercont{
+      display: flex;
       width: 1200px;
     }
 
