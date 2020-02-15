@@ -75,9 +75,10 @@ export default {
         logo.style.top = (window.innerHeight / 2) - (logo.offsetHeight/2) + "px";
     let blocks = document.querySelectorAll('.block');
     let blockArr = [];
+    let offset = (window.innerHeight / 2) - (logo.offsetHeight/2);
 
     window.addEventListener('resize', () =>{
-      logo.style.top = (window.innerHeight / 2) - (logo.offsetHeight/2) + "px";
+      logo.style.top =  offset+ "px";
     })
 
     gsap.from(this.$refs['nav'].$el, .9, {autoAlpha: 0, delay: .3});
@@ -136,12 +137,12 @@ export default {
           this.$refs['inner'].scrollTo(0,0);
           scrolled = false;
         }
-        logo.style.top = 350+"px";
+        logo.style.top = offset+"px";
 
         gsap.to('.brg', .4, {autoAlpha: 1});
       }else{
-        if(st > 450){
-          logo.style.top = (800) - st+"px";
+        if(st > offset){
+          logo.style.top = (offset+300) - st+"px";
         }
         scrolled = true;
         gsap.to('.brg', .4, {autoAlpha: 0});
