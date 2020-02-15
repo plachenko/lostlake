@@ -34,11 +34,12 @@ export default {
     }
   },
   mounted(){
-    this.i = require('../assets/LostLake/profile/'+this.profile.img);
     if(this.game){
+      this.i = require('../assets/LostLake/games/'+this.profile.img);
       this.mar = -50;
       this.wid = '100%';
     } else {
+      this.i = require('../assets/LostLake/profile/'+this.profile.img);
       this.mar = -100;
       this.wid = '30px';
     }
@@ -68,7 +69,7 @@ p{
   padding-right: 105px;
   font-size: .8em;
   line-height: 1.7;
-  margin-top: 20px;
+  margin-top: 35px;
   font-family: 'inputSerifCondensed';
 }
 </style>

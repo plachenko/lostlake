@@ -15,7 +15,7 @@
       </div>
 
       <!-- Call to action copy -->
-      <div id="imagination" class="block">
+      <div id="imagination" class="block" style="padding-top: 5vw;">
         <p class="cta_copy" id="test">Lorem ipsum dolor sit amet, consectetur adipising. We are a <llink :href="'#experience'">team of developers</llink> Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. <br /><llink :href="'#team'">proven track record of experiences</llink> Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum <llink :href="'#imagination'">imagination</llink> Etiam mattis ullamcorper dui. Aliquam erat volutpat, lorem <llink :href="'#contact'">join us</llink> oCras condimentum velit eget dui.</p>
       </div>
 
@@ -43,7 +43,7 @@
       <!-- Contact -->
       <div id="contact" class="block">
         <div class="innercont">
-          <llink :href="'#'">hello@lostlake.com</llink>
+          <llink :href="'mailto:hello@lostlakegames.com'">hello@lostlakegames.com</llink>
         </div>
       </div>
     </div>
@@ -71,13 +71,40 @@ export default {
   mounted(){
     let scrolled = false;
     let rect = this.$refs['atf'].getBoundingClientRect();
+    let logo = this.$refs['logo'].$el;
+        logo.style.top = (window.innerHeight / 2) - (logo.offsetHeight/2) + "px";
+    let blocks = document.querySelectorAll('.block');
+    let blockArr = [];
+
+    window.addEventListener('resize', () =>{
+      logo.style.top = (window.innerHeight / 2) - (logo.offsetHeight/2) + "px";
+    })
 
     gsap.from(this.$refs['nav'].$el, .9, {autoAlpha: 0, delay: .3});
 
-    this.$refs['inner'].addEventListener('scroll', (e) => {
-      e.preventDefault();
+    for(let i = 0; i < blocks.length; i++){
+      blockArr.push({
+        val: blocks[i].id,
+        top: blocks[i].getBoundingClientRect().top
+      });
+    }
 
+    this.$refs['inner'].addEventListener('scroll', (e) => {
+      /*
+      document.querySelectorAll('nav a').find((e) => {
+        console.log(e);
+      });
+      */
+      e.preventDefault();
       let st = e.target.scrollTop;
+      let innerbArr = [];
+
+      for(let i in blockArr){
+        if(st > blockArr[i].top - 100){
+          innerbArr.push(blockArr[i].val);
+          console.log(innerbArr.slice(-1)[0]);
+        }
+      }
 
       this.$nextTick(()=>{
         if(st < rect.height){
@@ -87,7 +114,7 @@ export default {
         }
       })
 
-      if(st < rect.height + 430){
+      if(st < rect.height + 445){
         gsap.to("#content", .3, {'margin-right': -17});
         gsap.to('nav', .6, {backgroundColor: "rgba(0,0,0,0)"});
       }else{
@@ -197,6 +224,7 @@ export default {
   justify-content: center;
   color:#FFF;
   display: flex;
+  padding-bottom: 100px;
   box-sizing: border-box;
   align-items: center;
   }
@@ -268,6 +296,8 @@ html, body{
       flex: 1;
       font-family: 'inputSerif';
       margin-bottom: 100px;
+      padding-right: 380px;
+      display: block;
       }
     .innercont{
       display: flex;
