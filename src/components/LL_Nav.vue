@@ -1,5 +1,6 @@
 <template>
   <nav >
+    <!-- <img src="../assets/LostLake/logo_center2.png" v-if="logo" /> -->
     <ul>
       <li><a href="#team">Team.</a></li>
       <li><a href="#experience">Experience.</a></li>
@@ -9,8 +10,18 @@
   </nav>
 </template>
 <script>
+// import gsap from 'gsap';
+// import llogo from './LL_Logo.vue';
 export default {
-
+  components: {
+    // llogo
+  },
+  props: {
+    logo:{
+      type: Boolean,
+      default: false
+    }
+  }
 }
 </script>
 <style scope>

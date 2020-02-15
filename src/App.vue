@@ -1,7 +1,7 @@
 <template>
   <div id="app">
 
-    <llnav ref="nav" />
+    <llnav ref="nav" :logo="showLogo" />
 
     <div id="content" ref="inner">
 
@@ -99,18 +99,21 @@ export default {
       let st = e.target.scrollTop;
       let innerbArr = [];
 
+      // console.log(st);
+
       for(let i in blockArr){
         if(st > blockArr[i].top - 100){
           innerbArr.push(blockArr[i].val);
-          console.log(innerbArr.slice(-1)[0]);
         }
       }
 
       this.$nextTick(()=>{
-        if(st < rect.height){
-          gsap.to(this.$refs['logo'].$el, .3, {autoAlpha: 1});
+        if(st < rect.height/2 + 100){
+          gsap.to(logo, .3, {autoAlpha: 1});
+          this.showLogo = false;
         }else{
-          gsap.to(this.$refs['logo'].$el, .3, {autoAlpha: 0});
+          gsap.to(logo, .3, {autoAlpha: 0});
+          this.showLogo = true;
         }
       })
 
@@ -133,9 +136,13 @@ export default {
           this.$refs['inner'].scrollTo(0,0);
           scrolled = false;
         }
+        logo.style.top = 350+"px";
 
         gsap.to('.brg', .4, {autoAlpha: 1});
       }else{
+        if(st > 450){
+          logo.style.top = (800) - st+"px";
+        }
         scrolled = true;
         gsap.to('.brg', .4, {autoAlpha: 0});
       }
@@ -147,6 +154,7 @@ export default {
     return {
       rot: 0,
       clicked: false,
+      showLogo: false,
       experiences: [
         {
           bgPos: -240,
