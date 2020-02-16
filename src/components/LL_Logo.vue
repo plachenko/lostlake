@@ -37,8 +37,6 @@ export default {
     gsap.from('img', 1, {autoAlpha:0, delay: .3});
     gsap.from('.top', .5, {width: 0, height: 0})
     gsap.from('.bot', .5, {width: 0, height: 0})
-
-
   }
 }
 </script>

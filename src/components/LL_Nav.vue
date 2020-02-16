@@ -1,6 +1,6 @@
 <template>
   <nav >
-    <!-- <img src="../assets/LostLake/logo_center2.png" v-if="logo" /> -->
+    <img @click="scrollEvt" v-show="logo" id="logoImg" src="../assets/LostLake/logo_center2.png" />
     <ul>
       <li :id="l+'lnk'" v-for="(l, k) in links" :key=k>
         <div class="border top" />
@@ -12,18 +12,21 @@
   </nav>
 </template>
 <script>
-// import gsap from 'gsap';
-// import llogo from './LL_Logo.vue';
-// import llink from './LL_Link.vue';
+import gsap from 'gsap';
 export default {
-  components: {
-    // llink
-    // llogo
-  },
   props: {
     logo:{
       type: Boolean,
       default: false
+    }
+  },
+  watch: {
+    logo(val){
+      if(val){
+        gsap.to('#logoImg', .3, {opacity: 1, paddingLeft: 0})
+      }else{
+        gsap.to('#logoImg', .3, {opacity: 0, paddingLeft: 10})
+      }
     }
   },
   filters: {
@@ -33,12 +36,17 @@ export default {
       return value.charAt(0).toUpperCase() + value.slice(1)
     }
   },
+  methods:{
+    scrollEvt(){
+      this.$emit('scrollUp');
+    }
+  },
   data: function(){
     return{
       links: [
+        'imagination',
         'team',
         'experience',
-        'imagination',
         'contact'
       ]
     }
@@ -49,15 +57,15 @@ export default {
   .border{
     color:#FFF;
     height: 10px;
-    width: 10px;
+    width: 20px;
     position: absolute;
     opacity: 0;
   }
   .bot{
     border-right: 2px solid;
     border-bottom: 2px solid;
-    bottom: 5px;
     right: 5px;
+    bottom: 5px;
     }
   .top{
     border-left: 2px solid;
@@ -77,10 +85,13 @@ export default {
     font-size: 1em;
     }
     nav img{
+      /* opacity: 0; */
       width: 70px;
       position: absolute;
       top: 10px;
+      cursor: pointer;
       left: 150px;
+      padding-left: 10px;
     }
     nav ul {
       display: block;
