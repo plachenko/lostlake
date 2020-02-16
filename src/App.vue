@@ -9,7 +9,7 @@
       <div ref="atf" class="block">
         <div class="brg"></div>
         <div id="logoCont">
-          <llogo ref="logo" :rot="rot" />
+          <llogo ref="logo" :rot="rot" :logo="showLogo" />
           <div class="mtn"></div>
         </div>
       </div>
@@ -91,6 +91,8 @@ export default {
     }
 
     this.$refs['inner'].addEventListener('scroll', (e) => {
+      // SCROLLING ANIMATIONS
+
       /*
       document.querySelectorAll('nav a').find((e) => {
         console.log(e);
@@ -98,47 +100,34 @@ export default {
       */
       e.preventDefault();
       let st = e.target.scrollTop;
-      let innerbArr = [];
+      let currentSec = blockArr.find(e => (e.top + window.innerHeight - 10) >= st);
+      let curel = document.querySelectorAll('#'+currentSec.val+'lnk .border');
+      let els = document.querySelectorAll('nav .border');
 
-      // console.log(st);
-
-      for(let i in blockArr){
-        if(st > blockArr[i].top - 100){
-          innerbArr.push(blockArr[i].val);
+      // navigation animation
+      for(let i = 0; i <= els.length; i++){
+        if(els[i] !==curel){
+          // gsap.to(els[i], .3, {color: '#FFF'});
+          gsap.to(els[i], .3, {opacity: 0});
         }
       }
+      // gsap.to(curel, .3, {color: 'rgb(169, 201, 220)'});
+      gsap.to(curel, .3, {opacity: 1});
 
-      this.$nextTick(()=>{
-        if(st < rect.height/2 + 100){
-          gsap.to(logo, .3, {autoAlpha: 1});
-          this.showLogo = false;
-        }else{
-          gsap.to(logo, .3, {autoAlpha: 0});
-          this.showLogo = true;
-        }
-      })
-
-      if(st < rect.height + 445){
-        gsap.to("#content", .3, {'margin-right': -17});
-        gsap.to('nav', .6, {backgroundColor: "rgba(0,0,0,0)"});
-      }else{
-        gsap.to("#content", .3, {'margin-right': 0});
-        gsap.to('nav', .5, {backgroundColor: "rgba(0,0,0,.5)"});
-      }
-
+      // Rotate the logo.
       if(st < 4){
         this.rot = 0;
       }else{
         this.rot = 45;
       }
 
+      // Fade the background and set the scroll to zero when scrolled up
       if(st < 210){
         if(scrolled){
           this.$refs['inner'].scrollTo(0,0);
           scrolled = false;
         }
         logo.style.top = offset+"px";
-
         gsap.to('.brg', .4, {autoAlpha: 1});
       }else{
         if(st > offset){
@@ -146,6 +135,24 @@ export default {
         }
         scrolled = true;
         gsap.to('.brg', .4, {autoAlpha: 0});
+      }
+
+      // Hide the logo on scroll down.
+      if(st < rect.height/2 + 100){
+        gsap.to(logo, .3, {autoAlpha: 1});
+        this.showLogo = false;
+      }else{
+        gsap.to(logo, .3, {autoAlpha: 0});
+        this.showLogo = true;
+      }
+
+      // Add scrollbar and change navigation background color.
+      if(st < rect.height + 445){
+        gsap.to("#content", .3, {'margin-right': -17});
+        gsap.to('nav', .6, {backgroundColor: "rgba(0,0,0,0)"});
+      }else{
+        gsap.to("#content", .3, {'margin-right': 0});
+        gsap.to('nav', .5, {backgroundColor: "rgba(0,0,0,.5)"});
       }
 
       return false;
@@ -277,11 +284,11 @@ html, body{
   overflow: hidden;
   height: 100%;
   width: 100%;
-  /* font-family: 'Roboto', 'Segoe UI', Tahoma, sans-serif; */
   }
   #content{
     overflow-y: scroll;
     margin-right: -17px;
+    overflow-x: hidden;
     }
 
 
