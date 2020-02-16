@@ -3,7 +3,7 @@
     <div class="inner">
       <div ref="desc" class="pos">
         <h3>{{game.name}}</h3>
-        <p>{{game.desc}}</p>
+        <p>{{game.description}}</p>
       </div>
     </div>
     <div class="gImg" :style="{ backgroundImage: `url('${i}')`}" />
