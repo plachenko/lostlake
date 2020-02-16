@@ -138,7 +138,7 @@ export default {
         gsap.to('.brg', .4, {autoAlpha: 1});
       }else{
         if(st > offset + 175){
-          logo.style.top = (offset+(485)) - st+"px";
+          logo.style.top = (offset+(window.innerHeight/2)) - st+"px";
         }
         scrolled = true;
         gsap.to('.brg', .4, {autoAlpha: 0});
