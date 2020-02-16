@@ -147,19 +147,18 @@ export default {
       // Hide the logo on scroll down.
       if(st < rect.height/2 + 250){
         gsap.to(logo, .3, {autoAlpha: 1, paddingRight: 0});
+        gsap.to("#content", .3, {'margin-right': -17});
         this.showLogo = false;
       }else{
         gsap.to(logo, .3, {autoAlpha: 0, paddingRight: 100});
-        // logo.style.transform = "scale("+ 350*2 / st +")";
+        gsap.to("#content", .3, {'margin-right': 0});
         this.showLogo = true;
       }
 
       // Add scrollbar and change navigation background color.
       if(st < rect.height + 445){
-        gsap.to("#content", .3, {'margin-right': -17});
         gsap.to('nav', .6, {backgroundColor: "rgba(0,0,0,0)"});
       }else{
-        gsap.to("#content", .3, {'margin-right': 0});
         gsap.to('nav', .5, {backgroundColor: "rgba(0,0,0,.5)"});
       }
 
