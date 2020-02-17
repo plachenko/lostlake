@@ -1,6 +1,6 @@
 <template>
   <nav >
-    <img @click="scrollEvt" v-show="logo" id="logoImg" src="../assets/LostLake/logo_center2.png" />
+  <!-- <img @click="scrollEvt" v-show="logo" id="logoImg" src="../assets/LostLake/logo_center2.png" /> -->
     <ul>
       <li :id="l+'lnk'" v-for="(l, k) in links" :key=k>
         <div class="border top" />
@@ -64,14 +64,14 @@ export default {
   .bot{
     border-right: 2px solid;
     border-bottom: 2px solid;
-    right: 5px;
-    bottom: 5px;
+    right: 8px;
+    bottom: 8px;
     }
   .top{
     border-left: 2px solid;
     border-top: 2px solid;
-    left: 5px;
-    top: 5px;
+    left: 8px;
+    top: 8px;
     }
   nav {
     z-index: 9999;

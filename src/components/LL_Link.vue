@@ -1,7 +1,7 @@
 <template>
-  <a :href="href" :target="target">
-    <div ref="top" class="top"></div>
-    <div ref="bot" class="bot"></div>
+  <a :href="href" :target="target" :style="{color: `'${color}'`}">
+    <div ref="top" class="top" :style="{color: `'${color}'`}"></div>
+    <div ref="bot" class="bot" :style="{color: `'${color}'`}"></div>
     <span>
       <slot />
     </span>
@@ -13,6 +13,10 @@ import gsap from 'gsap';
 export default {
   name: 'llink',
   props:{
+    color: {
+      type: String,
+      default: 'rgb(255, 255, 255)'
+    },
     target: {
       type: String,
       default: ''
@@ -63,7 +67,7 @@ a {
     width: 40px;
     height: 20px;
     box-sizing: border-box;
-    color:#FFF;
+    /* color:#FFF; */
     position: absolute;
     opacity: 0;
     }

@@ -42,8 +42,11 @@
 
       <!-- Contact -->
       <div id="contact" class="block">
-        <div class="innercont">
-          <llink :href="'mailto:hello@lostlakegames.com'">hello@lostlakegames.com</llink>
+        <div class="innercont" style="flex-direction: column; text-align: center;">
+          <img style="width: 360px; align-self: center; margin: 100px 0px;" id="logoImg" src="./assets/LostLake/logo_center2.png" />
+          <div>
+            <llink style="font-size: .5em;" :color="'rgb(69, 101, 120)'" :href="'mailto:hello@lostlakegames.com'">hello@lostlakegames.com</llink>
+          </div>
         </div>
       </div>
     </div>
@@ -146,13 +149,15 @@ export default {
       }
 
       // Hide the logo on scroll down.
-      if(st < rect.height/2 + 150){
-        gsap.to(logo, .3, {autoAlpha: 1, paddingRight: 0});
-        gsap.to("#content", .3, {'margin-right': -17});
+      if(st < rect.height/2 + 50){
+        gsap.to(logo, .3, {autoAlpha: 1});
+        // gsap.to(logo, .3, {autoAlpha: 1, paddingRight: 0});
+        // gsap.to("#content", .3, {'margin-right': -17});
         this.showLogo = false;
       }else{
-        gsap.to(logo, .3, {autoAlpha: 0, paddingRight: 100});
-        gsap.to("#content", .3, {'margin-right': 0});
+        gsap.to(logo, .3, {autoAlpha: 0});
+        // gsap.to(logo, .3, {autoAlpha: 0, paddingRight: 100});
+        // gsap.to("#content", .3, {'margin-right': 0});
         this.showLogo = true;
       }
 
@@ -289,7 +294,7 @@ html, body{
 #top{
   width: 100px;
   height: 100px;
-  background-color:#00F;
+  /* background-color:#00F; */
   }
 #app{
   display: flex;
@@ -300,7 +305,7 @@ html, body{
   }
   #content{
     overflow-y: scroll;
-    margin-right: -17px;
+    /* margin-right: -17px; */
     overflow-x: hidden;
     }
 
