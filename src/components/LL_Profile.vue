@@ -49,6 +49,9 @@ export default {
 </script>
 
 <style scoped>
+.profile{
+  width: 400px;
+}
 .img{
   height: 580px;
   width: 100%;

@@ -204,15 +204,15 @@ export default {
       profiles: [
         {
           name: 'James Phinney',
-          title: 'Game Design',
+          title: 'Creative Direction, Design, Implementation',
           img: 'james.jpg',
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum. Etiam mattis ullamcorper dui. Aliquam erat volutpat. Cras condimentum velit eget dui pellentesque, eu efficitur est pretium. Vivamus rutrum eros nec neque tincidunt, in volutpat mi fringilla. Donec vestibulum sodales justo, eu tempor libero gravida blandit. Maecenas sodales est quis nulla gravida convallis. Duis eu sem quis augue pharetra sodales."
+          description: "James builds worlds that people tell stories about. As a design and creative leader, he has established studio defining franchises for some of the industries largest studios. He connects the dots between creating worlds and crafting deep and rewarding gameplay experiences. He’ll find the fun and hang onto it."
         },
         {
           name: 'Joe Pikop',
-          title: 'Creative Direction',
+          title: 'Look Development, Creative Direction, Tech Art',
           img: 'joe.jpg',
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum. Etiam mattis ullamcorper dui. Aliquam erat volutpat. Cras condimentum velit eget dui pellentesque, eu efficitur est pretium. Vivamus rutrum eros nec neque tincidunt, in volutpat mi fringilla. Donec vestibulum sodales justo, eu tempor libero gravida blandit. Maecenas sodales est quis nulla gravida convallis. Duis eu sem quis augue pharetra sodales."
+          description: "Equal parts art, tech and spackle, Joe identifies gaps between artistic vision and technical implementation and fills them. You will find him creating art, simplifying art practice with new tools and writing shaders. He’s unrelenting in his effort to make something both beautiful and performant."
         },
         {
           name: 'Mark Podorf',
