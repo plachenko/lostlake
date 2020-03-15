@@ -204,13 +204,15 @@ export default {
       profiles: [
         {
           name: 'James Phinney',
-          title: 'Creative Direction, Design, Implementation',
+          title: 'Creative Direction, Design, Implementation, Balance',
+          games: 'Warcraft 2, Diablo, Starcraft, wSacrifice  a, Guild Wars 1, Guildwars 2, Gigantic, State of Decay',
           img: 'james.jpg',
           description: "James builds worlds that people tell stories about. As a design and creative leader, he has established studio defining franchises for some of the industries largest studios. He connects the dots between creating worlds and crafting deep and rewarding gameplay experiences. He’ll find the fun and hang onto it."
         },
         {
           name: 'Joe Pikop',
-          title: 'Look Development, Creative Direction, Tech Art',
+          title: 'Look Development, Creative Direction, Tech Art, Training',
+          games: 'D&D Online, Empire Earth 3, Bully: SE, Guild Wars 2, Gigantic',
           img: 'joe.jpg',
           description: "Equal parts art, tech and spackle, Joe identifies gaps between artistic vision and technical implementation and fills them. You will find him creating art, simplifying art practice with new tools and writing shaders. He’s unrelenting in his effort to make something both beautiful and performant."
         },

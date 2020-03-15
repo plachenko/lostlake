@@ -3,6 +3,7 @@
     <div :style="{ backgroundImage: `url('${i}')`, 'background-position-x': bgpos+'px'}" class="img" />
     <div style="padding-left: 20px;">
       <h3 :style="{'margin-top': mar+'px', width: this.wid}">{{ profile.name }} <div v-if="!game">{{ profile.title }}</div></h3>
+      <span style="font-family: InputSerif; display: inline-block; margin: 30px 0px 0px 0px; color:#CCC; font-size: 14px; width: 300px;">{{ profile.games }}</span>
       <p>{{ profile.description }}</p>
     </div>
   </div>
