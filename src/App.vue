@@ -211,6 +211,9 @@ export default {
         {
           name: 'James Phinney',
           title: 'Design',
+          socials: [
+            {type: 'linkedIn', link: "https://www.linkedin.com/"}
+          ],
           games: 'Warcraft 2, Diablo, Starcraft, wSacrifice  a, Guild Wars 1, Guildwars 2, Gigantic, State of Decay',
           img: 'james.jpg',
           description: "James builds worlds that people tell stories about. As a design and creative leader, he has established studio defining franchises for some of the industries largest companies. He connects the dots between creating worlds and crafting deep, rewarding gameplay experiences. Finding the fun and fostering it is his specialty."
@@ -218,6 +221,9 @@ export default {
         {
           name: 'Joe Pikop',
           title: 'Art',
+          socials: [
+            {type: 'linkedIn', link: "https://www.linkedin.com/"}
+          ],
           games: 'D&D Online, Empire Earth 3, Bully: SE, Guild Wars 2, Gigantic',
           img: 'joe.jpg',
           description: "Equal parts art, tech and spackle, Joe identifies gaps between artistic vision and technical implementation and fills them. You will find him making art, simplifying art pipelines, or writing tools and shaders. He’s relentless in his effort to make something both beautiful and unique."
@@ -225,6 +231,9 @@ export default {
         {
           name: 'Mark Pottorf',
           title: 'Engineering',
+          socials: [
+            {type: 'linkedIn', link: "https://www.linkedin.com/"}
+          ],
           games: 'H1Z1, Golem,Quantum Conundrum, Dark Void and Gigantic',
           img: 'mark.jpeg',
           description: "With extensive hands on experience in every system imaginable, Mark deftly tackles any technical challenge and elegantly weaves it into the bigger picture. As a consummate Design-gineer, Mark is never just creating a feature--he’s making games."

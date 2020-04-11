@@ -2,7 +2,21 @@
   <div class="profile">
     <div :style="{ backgroundImage: `url('${i}')`, 'background-position-x': bgpos+'px'}" class="img" />
     <div style="padding-left: 24px;">
-      <h3 :style="{'margin-top': mar+'px', width: this.wid}">{{ profile.name }} <div v-if="!game">{{ profile.title }}</div></h3>
+      <h3 :style="{'margin-top': mar+'px', width: this.wid}">{{ profile.name }}
+        <div class="titleDiv">
+          <div v-if="!game" class="title">{{ profile.title }}</div>
+          <div v-if="profile.socials" class="socials">
+            <div
+            v-for="(social, idx) in profile.socials"
+            :key="idx"
+            class="socialBtn"
+            :class="{
+              lnBtn: social.type == 'linkedIn'
+            }"
+            @click="open(social.link)" />
+          </div>
+        </div>
+      </h3>
       <span style="font-family: InputSerif; display: inline-block; margin: 36px 0px 0px 0px; color:#CCC; font-size: 14px; width: 300px;">{{ profile.games }}</span>
       <p>{{ profile.description }}</p>
     </div>
@@ -45,6 +59,11 @@ export default {
       this.wid = 'auto';
     }
     gsap.from(this.$el, 1, {opacity: 0, delay: this.$vnode.key - this.$vnode.key/1.4})
+  },
+  methods: {
+    open(link){
+      window.open(link, '_blank');
+    }
   }
 }
 </script>
@@ -66,7 +85,7 @@ h3{
 }
 h3 div {
   padding-top: 0px;
-  width: 270px;
+  /* width: 270px; */
   font-size: 20px;
 }
 p{
@@ -76,4 +95,26 @@ p{
   margin-top: 12px;
   font-family: 'inputSerifCondensed';
 }
+.title{
+  margin-top: 2px;
+  float: left;
+}
+.titleDiv{
+  width: 270px;
+  float: left;
+}
+.socials{
+  float: left;
+  margin-left: 5px;
+}
+.socialBtn{
+  background-repeat: no-repeat;
+  display: inline-block;
+  cursor: pointer;
+  width: 26px;
+  height: 26px;
+  background:#000;
+  margin: 0px 4px;
+  }
+  .lnBtn{ background: url('../assets/LostLake/linkedin_sm.png') !important; }
 </style>
