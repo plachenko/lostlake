@@ -73,13 +73,13 @@ a {
     }
   .top{
     left: -10px;
-    top: -5px;
+    top: -4px;
     border-left: solid;
     border-top: solid;
     }
   .bot{
     right: -10px;
-    bottom: -5px;
+    bottom: -4px;
     border-right: solid;
     border-bottom: solid;
     margin-top: auto;

@@ -15,8 +15,12 @@
       </div>
 
       <!-- Call to action copy -->
+      <!-- <div id="cta" class="block content">
+        <div class="innercont">
+          <h2>Some Header.</h2>
+        </div> -->
       <div id="imagination" class="block" style="padding-top: 5vw;">
-        <p class="cta_copy" id="test">Lorem ipsum dolor sit amet, consectetur adipising. We are a <llink :href="'#experience'">team of developers</llink> Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. <br /><llink :href="'#team'">proven track record of experiences</llink> Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum <llink :href="'#imagination'">imagination</llink> Etiam mattis ullamcorper dui. Aliquam erat volutpat, lorem <llink :href="'#contact'">join us</llink> oCras condimentum velit eget dui.</p>
+        <p class="cta_copy" id="test">Lorem ipsum dolor sit amet, consectetur adipising. We are a team of <llink :href="'#team'">experienced developers</llink> Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. With a proven track record of creating <llink :href="'#experience'">legendary experiences</llink> Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum imagination. Etiam mattis ullamcorper dui. Aliquam erat volutpat, lorem <llink :href="'#contact'">contact us</llink> oCras condimentum velit eget dui.</p>
       </div>
 
       <!-- Team section -->
@@ -32,7 +36,7 @@
       <!-- Experience -->
       <div id="experience" class="block content">
         <div class="innercont">
-          <h2>Proven track record of creating legendary experiences.</h2>
+          <h2>A track record of creating legendary experiences.</h2>
         </div>
         <div class="innercont">
           <llprofile v-for="(g, k) in experiences" :key="k" :profile="g" :game="true" :bgpos="g.bgPos" />
@@ -43,10 +47,12 @@
       <!-- Contact -->
       <div id="contact" class="block">
         <div class="innercont" style="flex-direction: column; text-align: center;">
-          <img style="width: 360px; align-self: center; margin: 100px 0px;" id="logoImg" src="./assets/LostLake/logo_center2.png" />
+          <img style="width: 360px; align-self: center; padding-top:120px; padding-bottom:64px;" id="logoImg" src="./assets/LostLake/logo_center2.png" />
           <div>
-            <llink style="font-size: .5em;" :color="'rgb(69, 101, 120)'" :href="'mailto:hello@lostlakegames.com'">hello@lostlakegames.com</llink>
+            <llink style="font-size: 20px;" :color="'rgb(64, 89, 90)'" :href="'mailto:hello@lostlakegames.com'">hello@lostlakegames.com</llink>
           </div>
+          <a href="https://www.linkedin.com/company/lost-lake-games/">
+          <img style="width: 54px; align-self: center; padding-top:24px;" id="linkedin" src="./assets/LostLake/linkedin.png" /></a>
         </div>
       </div>
     </div>
@@ -186,41 +192,42 @@ export default {
           bgPos: -240,
           name: 'Starcraft',
           img: 'starcraft.jpg',
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum. Etiam mattis ullamcorper dui. Aliquam erat volutpat. Cras condimentum velit eget dui pellentesque, eu efficitur est pretium. Vivamus rutrum eros nec neque tincidunt, in volutpat mi fringilla. Donec vestibulum sodales justo, eu tempor libero gravida blandit. Maecenas sodales est quis nulla gravida convallis. Duis eu sem quis augue pharetra sodales."
+          description: "Blizzard Entertainment's use of three distinct races in StarCraft is widely credited with revolutionizing the real-time strategy genre.[6] All units are unique to their respective races, and while rough comparisons can be drawn between certain types of units in the technology tree, every unit performs differently and requires different tactics for a player to succeed."
         },
         {
           bgPos: -100,
           name: 'Guild Wars',
           img: 'guildwars.jpg',
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum. Etiam mattis ullamcorper dui. Aliquam erat volutpat. Cras condimentum velit eget dui pellentesque, eu efficitur est pretium. Vivamus rutrum eros nec neque tincidunt, in volutpat mi fringilla. Donec vestibulum sodales justo, eu tempor libero gravida blandit. Maecenas sodales est quis nulla gravida convallis. Duis eu sem quis augue pharetra sodales."
+          description: " Guild Wars was noted for being the first major MMO to adopt a business model not based on monthly subscription fees, its instanced approach to gameplay, and the quality of the graphics and play for computers with low specifications."
         },
         {
           bgPos: -550,
           name: 'Gigantic',
           img: 'gigantic.jpg',
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum. Etiam mattis ullamcorper dui. Aliquam erat volutpat. Cras condimentum velit eget dui pellentesque, eu efficitur est pretium. Vivamus rutrum eros nec neque tincidunt, in volutpat mi fringilla. Donec vestibulum sodales justo, eu tempor libero gravida blandit. Maecenas sodales est quis nulla gravida convallis. Duis eu sem quis augue pharetra sodales."
+          description: "Gigantic was a free-to-play strategic third-person shooter video game developed by the independent game studio Motiga and published by Perfect World Entertainment. The game focused on team-based action combat with heroes battling alongside a massive guardian. Players must protect their guardian along with their team and attempt to destroy the opposing team and their guardian."
         },
       ],
       profiles: [
         {
           name: 'James Phinney',
-          title: 'Creative Direction, Design, Implementation, Balance',
+          title: 'Design',
           games: 'Warcraft 2, Diablo, Starcraft, wSacrifice  a, Guild Wars 1, Guildwars 2, Gigantic, State of Decay',
           img: 'james.jpg',
-          description: "James builds worlds that people tell stories about. As a design and creative leader, he has established studio defining franchises for some of the industries largest studios. He connects the dots between creating worlds and crafting deep and rewarding gameplay experiences. He’ll find the fun and hang onto it."
+          description: "James builds worlds that people tell stories about. As a design and creative leader, he has established studio defining franchises for some of the industries largest companies. He connects the dots between creating worlds and crafting deep, rewarding gameplay experiences. Finding the fun and fostering it is his specialty."
         },
         {
           name: 'Joe Pikop',
-          title: 'Look Development, Creative Direction, Tech Art, Training',
+          title: 'Art',
           games: 'D&D Online, Empire Earth 3, Bully: SE, Guild Wars 2, Gigantic',
           img: 'joe.jpg',
-          description: "Equal parts art, tech and spackle, Joe identifies gaps between artistic vision and technical implementation and fills them. You will find him creating art, simplifying art practice with new tools and writing shaders. He’s unrelenting in his effort to make something both beautiful and performant."
+          description: "Equal parts art, tech and spackle, Joe identifies gaps between artistic vision and technical implementation and fills them. You will find him making art, simplifying art pipelines, or writing tools and shaders. He’s relentless in his effort to make something both beautiful and unique."
         },
         {
-          name: 'Mark Podorf',
-          title: 'Technology',
+          name: 'Mark Pottorf',
+          title: 'Engineering',
+          games: 'H1Z1, Golem,Quantum Conundrum, Dark Void and Gigantic',
           img: 'mark.jpeg',
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque congue ut leo quis vulputate. Sed convallis orci id pharetra luctus. Curabitur consectetur tincidunt sapien non egestas. In ullamcorper lectus non nisl commodo, in ullamcorper arcu rutrum. Etiam mattis ullamcorper dui. Aliquam erat volutpat. Cras condimentum velit eget dui pellentesque, eu efficitur est pretium. Vivamus rutrum eros nec neque tincidunt, in volutpat mi fringilla. Donec vestibulum sodales justo, eu tempor libero gravida blandit. Maecenas sodales est quis nulla gravida convallis. Duis eu sem quis augue pharetra sodales."
+          description: "With extensive hands on experience in every system imaginable, Mark deftly tackles any technical challenge and elegantly weaves it into the bigger picture. As a consummate Design-gineer, Mark is never just creating a feature--he’s making games."
         }
       ]
     }
@@ -317,7 +324,7 @@ html, body{
     /* margin: 650px 0 100px 0; */
     color:#FFF;
     font-family: 'inputSerif';
-    font-size: 2.5em;
+    font-size: 2em;
     font-weight: 900;
     color: rgb(69, 101, 120);
     line-height: 1.6;
@@ -326,13 +333,13 @@ html, body{
     }
     .innercont h2{
       width: 900px;
-      margin-top: 100px;
-      font-size: 54px;
+      margin-top: 64px;
+      font-size: 36px;
       line-height: 1.4;
       flex: 1;
       font-family: 'inputSerif';
-      margin-bottom: 100px;
-      padding-right: 380px;
+      margin-bottom: 64px;
+      padding-right: 100px;
       display: block;
       }
     .innercont{

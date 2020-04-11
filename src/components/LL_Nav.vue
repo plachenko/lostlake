@@ -5,7 +5,7 @@
       <li :id="l+'lnk'" v-for="(l, k) in links" :key=k>
         <div class="border top" />
         <div class="border bot" />
-        <a  :href="'#'+l">{{l | capitalize}}.</a>
+        <a  :href="'#'+l">{{l | capitalize}}</a>
       </li>
       <!-- <li v-for="(l, k) in links" :key=k><llink :href="'#'+l">{{l | capitalize}}.</llink></li> -->
     </ul>
