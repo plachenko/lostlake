@@ -222,7 +222,7 @@ export default {
           name: 'Joe Pikop',
           title: 'Art',
           socials: [
-            {type: 'linkedIn', link: "https://www.linkedin.com/"}
+            {type: 'linkedIn', link: "https://www.linkedin.com/"},
           ],
           games: 'D&D Online, Empire Earth 3, Bully: SE, Guild Wars 2, Gigantic',
           img: 'joe.jpg',

@@ -5,20 +5,20 @@
       <h3 :style="{'margin-top': mar+'px', width: this.wid}">{{ profile.name }}
         <div class="titleDiv">
           <div v-if="!game" class="title">{{ profile.title }}</div>
-          <div v-if="profile.socials" class="socials">
-            <div
-            v-for="(social, idx) in profile.socials"
-            :key="idx"
-            class="socialBtn"
-            :class="{
-              lnBtn: social.type == 'linkedIn'
-            }"
-            @click="open(social.link)" />
-          </div>
         </div>
       </h3>
       <span style="font-family: InputSerif; display: inline-block; margin: 36px 0px 0px 0px; color:#CCC; font-size: 14px; width: 300px;">{{ profile.games }}</span>
       <p>{{ profile.description }}</p>
+      <div v-if="profile.socials" class="socials">
+        <div
+        v-for="(social, idx) in profile.socials"
+        :key="idx"
+        class="socialBtn"
+        :class="{
+          lnBtn: social.type == 'linkedIn'
+        }"
+        @click="open(social.link)" />
+      </div>
     </div>
   </div>
 </template>
@@ -105,7 +105,9 @@ p{
 }
 .socials{
   float: left;
-  margin-left: 5px;
+  width: 100%;
+  padding-top: 7px;
+  margin-top: 7px;
 }
 .socialBtn{
   background-repeat: no-repeat;
@@ -114,7 +116,6 @@ p{
   width: 26px;
   height: 26px;
   background:#000;
-  margin: 0px 4px;
   }
   .lnBtn{ background: url('../assets/LostLake/linkedin_sm.png') !important; }
 </style>
